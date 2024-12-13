@@ -104,6 +104,19 @@ export function Header() {
                           </p>
                         </NavigationMenuLink>
                       </li>
+                      <li>
+                        <NavigationMenuLink
+                          href="/courses"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
+                        >
+                          <div className="text-sm font-medium text-[#6f0d44]">
+                            Cursos
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Cursos e capacitações para profissionais da área
+                          </p>
+                        </NavigationMenuLink>
+                      </li>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>

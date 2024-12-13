@@ -22,7 +22,7 @@ export function DockMenu() {
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 100 }}
       transition={{ duration: 0.5 }}
-      className="fixed bottom-0 left-0 right-0 z-50 flex justify-center items-center w-full pb-4"
+      className="fixed bottom-0 left-0 right-0 z-50 flex justify-center items-center w-full pb-8 mb-4"
     >
       <div className="bg-white/80 backdrop-blur-md rounded-full px-6 py-3 shadow-lg mx-auto">
         <div className="flex items-center gap-4">

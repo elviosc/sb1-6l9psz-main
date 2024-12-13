@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { DockMenu } from "@/components/dock-menu";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 // Pages
 import { HomePage } from "./pages/home";
@@ -45,6 +46,7 @@ export function App() {
     <>
       <Header />
       <DockMenu />
+      <WhatsAppButton />
       <main>
         <Routes>
           {/* Main Routes */}
