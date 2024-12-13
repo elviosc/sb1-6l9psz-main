@@ -19,6 +19,7 @@ const treatments = [
   [
     { title: "Bioestimuladores", href: "/treatments/bioestimuladores" },
     { title: "Fios de PDO", href: "/treatments/fios-pdo" },
+    { title: "Laser e Tecnologias", href: "/treatments/laser" },
   ],
   [
     { title: "Harmonização Facial", href: "/treatments/harmonizacao-facial" },
@@ -327,25 +328,81 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent className="w-[300px] sm:w-[540px]">
-              <nav className="flex flex-col space-y-4 mt-8">
+              <nav className="flex flex-col space-y-4 mt-8 h-[calc(100vh-6rem)] overflow-y-auto pb-20">
+                <div className="space-y-2">
+                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Sobre</h3>
+                  <a href="/profile" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
+                    Perfil Profissional
+                  </a>
+                  <a href="/clinic" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
+                    A Clínica
+                  </a>
+                  <a href="/courses" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
+                    Cursos
+                  </a>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Peles Étnicas</h3>
+                  {ethnicSkin.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300"
+                    >
+                      {item.title}
+                    </a>
+                  ))}
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Peles Brasileiras</h3>
+                  {brazilianSkin.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300"
+                    >
+                      {item.title}
+                    </a>
+                  ))}
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Tratamentos</h3>
+                  {treatments.flat().map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300"
+                    >
+                      {item.title}
+                    </a>
+                  ))}
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Artigos</h3>
+                  <a href="/articles/press" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
+                    Imprensa
+                  </a>
+                  <a href="/articles/videos" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
+                    Vídeos
+                  </a>
+                  <a href="/articles/blog" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
+                    Blog
+                  </a>
+                </div>
+
                 <div className="space-y-2">
                   <h3 className="text-sm font-semibold text-[#6f0d44]/70">Contato</h3>
-                  <a
-                    href="/contact"
-                    className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300"
-                  >
+                  <a href="/contact" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
                     Informações de Contato
                   </a>
-                  <a
-                    href="/contact/location"
-                    className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300"
-                  >
+                  <a href="/contact/location" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
                     Como Chegar
                   </a>
-                  <a
-                    href="/contact/careers"
-                    className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300"
-                  >
+                  <a href="/contact/careers" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
                     Trabalhe Conosco
                   </a>
                 </div>

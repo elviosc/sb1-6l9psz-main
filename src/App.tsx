@@ -32,6 +32,7 @@ import { SkinboosterPage } from "./pages/treatments/skinbooster/index";
 import { PreenchimentoPage } from "./pages/treatments/preenchimento/index";
 import { ToxinaBotulinicaPage } from "./pages/treatments/toxina-botulinica/index";
 import { PeelingPage } from "./pages/treatments/peeling/index";
+import { LaserPage } from "./pages/treatments/laser/index";
 import { EthnicSkinAcnePage } from "./pages/ethnic-skin/acne/index";
 import { EthnicSkinMelasmaPage } from "./pages/ethnic-skin/melasma/index";
 import { EthnicSkinScarsPage } from "./pages/ethnic-skin/scars/index";
@@ -76,6 +77,7 @@ export function App() {
             <Route path="preenchimento" element={<PreenchimentoPage />} />
             <Route path="toxina-botulinica" element={<ToxinaBotulinicaPage />} />
             <Route path="peeling" element={<PeelingPage />} />
+            <Route path="laser" element={<LaserPage />} />
           </Route>
 
           {/* Ethnic Skin Routes */}
