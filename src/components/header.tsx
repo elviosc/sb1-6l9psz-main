@@ -1,9 +1,12 @@
-import { Menu } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
+  SheetClose,
 } from "@/components/ui/sheet";
 import {
   NavigationMenu,
@@ -13,7 +16,15 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const treatments = [
   [
@@ -46,13 +57,27 @@ const brazilianSkin = [
   { title: "Manchas Solares", href: "/brazilian-skin/manchas-solares" }
 ];
 
+const articles = [
+  { title: "Blog", href: "/articles/blog" },
+  { title: "Vídeos", href: "/articles/videos" },
+  { title: "Imprensa", href: "/articles/press" },
+];
+
+const contact = [
+  { title: "Agendar Consulta", href: "/contact/appointment" },
+  { title: "Localização", href: "/contact/location" },
+  { title: "Trabalhe Conosco", href: "/contact/careers" },
+];
+
 export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[rgb(111,13,68)]/95 backdrop-blur-md border-b border-[#6f0d44]/10"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#6f0d44]/95 backdrop-blur-md border-b border-[#6f0d44]/10"
     >
       <div className="container mx-auto px-4">
         <div className="h-16 md:h-20 flex items-center justify-between">
@@ -321,103 +346,138 @@ export function Header() {
           </Button>
 
           {/* Mobile Navigation */}
-          <Sheet>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className="text-[#6f0d44]">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent className="w-[300px] sm:w-[540px]">
-              <nav className="flex flex-col space-y-4 mt-8 h-[calc(100vh-6rem)] overflow-y-auto pb-20">
-                <div className="space-y-2">
-                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Sobre</h3>
-                  <a href="/profile" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
-                    Perfil Profissional
-                  </a>
-                  <a href="/clinic" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
-                    A Clínica
-                  </a>
-                  <a href="/courses" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
-                    Cursos
-                  </a>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Peles Étnicas</h3>
-                  {ethnicSkin.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300"
-                    >
-                      {item.title}
-                    </a>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Peles Brasileiras</h3>
-                  {brazilianSkin.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300"
-                    >
-                      {item.title}
-                    </a>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Tratamentos</h3>
-                  {treatments.flat().map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300"
-                    >
-                      {item.title}
-                    </a>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Artigos</h3>
-                  <a href="/articles/press" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
-                    Imprensa
-                  </a>
-                  <a href="/articles/videos" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
-                    Vídeos
-                  </a>
-                  <a href="/articles/blog" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
-                    Blog
-                  </a>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-sm font-semibold text-[#6f0d44]/70">Contato</h3>
-                  <a href="/contact" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
-                    Informações de Contato
-                  </a>
-                  <a href="/contact/location" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
-                    Como Chegar
-                  </a>
-                  <a href="/contact/careers" className="block text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white py-1 px-2 rounded-md transition-colors duration-300">
-                    Trabalhe Conosco
-                  </a>
-                </div>
-
-                <Button 
-                  asChild
-                  className="w-full bg-[#6f0d44] hover:bg-[#8b1155] text-white mt-4 transition-colors duration-300"
+          <div className="block lg:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-white hover:bg-white/10"
                 >
-                  <a href="/contact/appointment">
-                    Agende sua Consulta
-                  </a>
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Toggle menu</span>
                 </Button>
-              </nav>
-            </SheetContent>
-          </Sheet>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[85vw] sm:w-[400px] bg-white">
+                <SheetHeader className="mb-4">
+                  <SheetTitle className="text-[#6f0d44]">Menu</SheetTitle>
+                </SheetHeader>
+                <div className="overflow-y-auto h-[calc(100vh-100px)]">
+                  <Accordion type="single" collapsible className="w-full">
+                    {/* Sobre */}
+                    <AccordionItem value="about">
+                      <AccordionTrigger className="text-[#6f0d44]">Sobre</AccordionTrigger>
+                      <AccordionContent>
+                        <div className="flex flex-col space-y-2">
+                          <Link to="/profile" className="p-2 hover:bg-[#6f0d44]/5 rounded-md">
+                            Perfil Profissional
+                          </Link>
+                          <Link to="/clinic" className="p-2 hover:bg-[#6f0d44]/5 rounded-md">
+                            A Clínica
+                          </Link>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    {/* Tratamentos */}
+                    <AccordionItem value="treatments">
+                      <AccordionTrigger className="text-[#6f0d44]">Tratamentos</AccordionTrigger>
+                      <AccordionContent>
+                        <div className="flex flex-col space-y-2">
+                          {treatments.flat().map((item) => (
+                            <Link
+                              key={item.href}
+                              to={item.href}
+                              className="p-2 hover:bg-[#6f0d44]/5 rounded-md flex items-center justify-between"
+                            >
+                              {item.title}
+                              <ChevronRight className="h-4 w-4" />
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    {/* Pele Étnica */}
+                    <AccordionItem value="ethnic">
+                      <AccordionTrigger className="text-[#6f0d44]">Pele Étnica</AccordionTrigger>
+                      <AccordionContent>
+                        <div className="flex flex-col space-y-2">
+                          {ethnicSkin.map((item) => (
+                            <Link
+                              key={item.href}
+                              to={item.href}
+                              className="p-2 hover:bg-[#6f0d44]/5 rounded-md flex items-center justify-between"
+                            >
+                              {item.title}
+                              <ChevronRight className="h-4 w-4" />
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    {/* Pele Brasileira */}
+                    <AccordionItem value="brazilian">
+                      <AccordionTrigger className="text-[#6f0d44]">Pele Brasileira</AccordionTrigger>
+                      <AccordionContent>
+                        <div className="flex flex-col space-y-2">
+                          {brazilianSkin.map((item) => (
+                            <Link
+                              key={item.href}
+                              to={item.href}
+                              className="p-2 hover:bg-[#6f0d44]/5 rounded-md flex items-center justify-between"
+                            >
+                              {item.title}
+                              <ChevronRight className="h-4 w-4" />
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    {/* Artigos */}
+                    <AccordionItem value="articles">
+                      <AccordionTrigger className="text-[#6f0d44]">Artigos</AccordionTrigger>
+                      <AccordionContent>
+                        <div className="flex flex-col space-y-2">
+                          {articles.map((item) => (
+                            <Link
+                              key={item.href}
+                              to={item.href}
+                              className="p-2 hover:bg-[#6f0d44]/5 rounded-md flex items-center justify-between"
+                            >
+                              {item.title}
+                              <ChevronRight className="h-4 w-4" />
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    {/* Contato */}
+                    <AccordionItem value="contact">
+                      <AccordionTrigger className="text-[#6f0d44]">Contato</AccordionTrigger>
+                      <AccordionContent>
+                        <div className="flex flex-col space-y-2">
+                          {contact.map((item) => (
+                            <Link
+                              key={item.href}
+                              to={item.href}
+                              className="p-2 hover:bg-[#6f0d44]/5 rounded-md flex items-center justify-between"
+                            >
+                              {item.title}
+                              <ChevronRight className="h-4 w-4" />
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </motion.header>
