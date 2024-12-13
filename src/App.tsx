@@ -33,6 +33,7 @@ import { ToxinaBotulinicaPage } from "./pages/treatments/toxina-botulinica/index
 import { PeelingPage } from "./pages/treatments/peeling/index";
 import { EthnicSkinAcnePage } from "./pages/ethnic-skin/acne/index";
 import { EthnicSkinMelasmaPage } from "./pages/ethnic-skin/melasma/index";
+import { EthnicSkinScarsPage } from "./pages/ethnic-skin/scars/index";
 
 export function App() {
   return (
@@ -74,6 +75,7 @@ export function App() {
           <Route path="/ethnic-skin">
             <Route path="acne" element={<EthnicSkinAcnePage />} />
             <Route path="melasma" element={<EthnicSkinMelasmaPage />} />
+            <Route path="scars" element={<EthnicSkinScarsPage />} />
           </Route>
 
           {/* Contact Routes */}
