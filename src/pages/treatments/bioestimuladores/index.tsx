@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 
-export function FiosPDO() {
+export function BioestimuladoresPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-[#fff5f8]">
       {/* Hero Section */}
@@ -13,7 +13,7 @@ export function FiosPDO() {
           <div className="relative w-full h-full">
             <img
               src="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5915-scaled.jpg"
-              alt="Tratamento com Fios PDO"
+              alt="Bioestimuladores de Colágeno"
               className="absolute w-full h-full object-cover scale-x-[-1]"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#6f0d44]/60 to-[#6f0d44]/40" />
@@ -35,9 +35,9 @@ export function FiosPDO() {
                 <ChevronRight className="h-4 w-4" />
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 text-white tracking-tight">
-                Fios
+                Bioestimuladores
                 <br />
-                <span className="font-semibold">PDO</span>
+                <span className="font-semibold">de Colágeno</span>
               </h1>
             </motion.div>
 
@@ -47,7 +47,7 @@ export function FiosPDO() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-2xl mb-8 text-white/90 font-light leading-relaxed"
             >
-              Lifting natural e duradouro com tecnologia avançada para rejuvenescimento e sustentação da pele.
+              Rejuvenescimento natural e duradouro através da estimulação da produção de colágeno próprio.
             </motion.p>
 
             <motion.div
@@ -88,10 +88,10 @@ export function FiosPDO() {
               </h2>
               <div className="prose prose-lg">
                 <p className="text-gray-600 leading-relaxed">
-                  Os Fios de PDO representam um dos mais avançados tratamentos para lifting facial não cirúrgico. Esta tecnologia inovadora utiliza fios absorvíveis que, além do efeito tensor imediato, estimulam a produção natural de colágeno, proporcionando resultados progressivos e duradouros.
+                  Os bioestimuladores de colágeno são substâncias injetáveis que estimulam a produção natural de colágeno pelo organismo. Este tratamento inovador proporciona resultados progressivos e duradouros, melhorando a qualidade, firmeza e sustentação da pele.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  O procedimento é minimamente invasivo, realizado com anestesia local, permitindo rápida recuperação e retorno às atividades. Os fios são estrategicamente posicionados para criar vetores de sustentação, promovendo lifting e rejuvenescimento natural.
+                  O procedimento é minimamente invasivo e pode ser realizado em diversas áreas do rosto e corpo, proporcionando um rejuvenescimento natural e harmonioso.
                 </p>
               </div>
 
@@ -101,21 +101,21 @@ export function FiosPDO() {
                     <ChevronRight className="w-5 h-5" />
                     <span className="font-medium">Duração</span>
                   </div>
-                  <p className="text-gray-600">60 a 90 minutos</p>
+                  <p className="text-gray-600">30 a 60 minutos</p>
                 </div>
                 <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg">
                   <div className="flex items-center gap-2 text-[#6f0d44] mb-2">
                     <ChevronRight className="w-5 h-5" />
                     <span className="font-medium">Recuperação</span>
                   </div>
-                  <p className="text-gray-600">3 a 5 dias</p>
+                  <p className="text-gray-600">2 a 3 dias</p>
                 </div>
                 <div className="bg-white/50 backdrop-blur-sm p-4 rounded-lg">
                   <div className="flex items-center gap-2 text-[#6f0d44] mb-2">
                     <ChevronRight className="w-5 h-5" />
                     <span className="font-medium">Resultados</span>
                   </div>
-                  <p className="text-gray-600">12 a 18 meses</p>
+                  <p className="text-gray-600">18 a 24 meses</p>
                 </div>
               </div>
 
@@ -124,12 +124,12 @@ export function FiosPDO() {
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
-                  'Efeito lifting imediato e natural',
-                  'Estímulo contínuo de colágeno',
-                  'Melhora do contorno facial',
-                  'Tratamento minimamente invasivo',
-                  'Recuperação rápida',
-                  'Resultados progressivos e duradouros',
+                  'Melhora da qualidade da pele',
+                  'Aumento da firmeza',
+                  'Redução de flacidez',
+                  'Resultados naturais',
+                  'Efeito progressivo',
+                  'Longa duração',
                 ].map((benefit) => (
                   <div
                     key={benefit}
@@ -147,11 +147,11 @@ export function FiosPDO() {
               <div className="bg-white/50 backdrop-blur-sm p-8 rounded-lg space-y-4">
                 {[
                   'Gestantes e lactantes',
-                  'Pessoas com tendência a queloides',
                   'Doenças autoimunes em atividade',
-                  'Infecções ativas na área a ser tratada',
+                  'Infecções ativas na área',
+                  'Tendência a queloides',
                   'Uso de anticoagulantes',
-                  'Distúrbios de coagulação',
+                  'Alergias aos componentes',
                 ].map((contraindication) => (
                   <div key={contraindication} className="flex items-start gap-3">
                     <ChevronRight className="w-5 h-5 text-[#6f0d44] mt-1" />

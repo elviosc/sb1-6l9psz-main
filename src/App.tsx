@@ -24,8 +24,9 @@ import { AppointmentPage } from "./pages/contact/appointment";
 import { LocationPage } from "./pages/contact/location";
 
 // Treatment Pages
-import { PDOThreadsPage } from "./pages/treatments/fios-pdo/index";
+import { FiosPDO } from "./pages/treatments/fios-pdo/index";
 import { HarmonizacaoFacialPage } from "./pages/treatments/harmonizacao-facial/index";
+import { BioestimuladoresPage } from "./pages/treatments/bioestimuladores/index";
 
 export function App() {
   return (
@@ -54,8 +55,9 @@ export function App() {
 
           {/* Treatment Routes */}
           <Route path="/treatments">
-            <Route path="fios-pdo" element={<PDOThreadsPage />} />
+            <Route path="fios-pdo" element={<FiosPDO />} />
             <Route path="harmonizacao-facial" element={<HarmonizacaoFacialPage />} />
+            <Route path="bioestimuladores" element={<BioestimuladoresPage />} />
           </Route>
 
           {/* Contact Routes */}
