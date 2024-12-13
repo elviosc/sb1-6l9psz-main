@@ -1,0 +1,30 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (forced-colors: active) {
+  .forced-colors-mode {
+    forced-color-adjust: none;
+  }
+  
+  /* High contrast adjustments */
+  .text-[#6f0d44] {
+    color: LinkText;
+  }
+  
+  .bg-[#6f0d44] {
+    background-color: ButtonText;
+  }
+  
+  .border-[#6f0d44] {
+    border-color: ButtonBorder;
+  }
+}
+
+/* Remove deprecated -ms-high-contrast properties */
+* {
+  forced-color-adjust: auto;
+}
