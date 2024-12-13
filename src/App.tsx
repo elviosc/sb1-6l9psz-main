@@ -34,6 +34,7 @@ import { PeelingPage } from "./pages/treatments/peeling/index";
 import { EthnicSkinAcnePage } from "./pages/ethnic-skin/acne/index";
 import { EthnicSkinMelasmaPage } from "./pages/ethnic-skin/melasma/index";
 import { EthnicSkinScarsPage } from "./pages/ethnic-skin/scars/index";
+import { EthnicSkinHyperpigmentationPage } from "./pages/ethnic-skin/hyperpigmentation/index";
 
 export function App() {
   return (
@@ -76,6 +77,7 @@ export function App() {
             <Route path="acne" element={<EthnicSkinAcnePage />} />
             <Route path="melasma" element={<EthnicSkinMelasmaPage />} />
             <Route path="scars" element={<EthnicSkinScarsPage />} />
+            <Route path="hyperpigmentation" element={<EthnicSkinHyperpigmentationPage />} />
           </Route>
 
           {/* Contact Routes */}
