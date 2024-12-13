@@ -27,6 +27,12 @@ import { LocationPage } from "./pages/contact/location";
 import { FiosPDO } from "./pages/treatments/fios-pdo/index";
 import { HarmonizacaoFacialPage } from "./pages/treatments/harmonizacao-facial/index";
 import { BioestimuladoresPage } from "./pages/treatments/bioestimuladores/index";
+import { SkinboosterPage } from "./pages/treatments/skinbooster/index";
+import { PreenchimentoPage } from "./pages/treatments/preenchimento/index";
+import { ToxinaBotulinicaPage } from "./pages/treatments/toxina-botulinica/index";
+import { PeelingPage } from "./pages/treatments/peeling/index";
+import { EthnicSkinAcnePage } from "./pages/ethnic-skin/acne/index";
+import { EthnicSkinMelasmaPage } from "./pages/ethnic-skin/melasma/index";
 
 export function App() {
   return (
@@ -58,6 +64,16 @@ export function App() {
             <Route path="fios-pdo" element={<FiosPDO />} />
             <Route path="harmonizacao-facial" element={<HarmonizacaoFacialPage />} />
             <Route path="bioestimuladores" element={<BioestimuladoresPage />} />
+            <Route path="skinbooster" element={<SkinboosterPage />} />
+            <Route path="preenchimento" element={<PreenchimentoPage />} />
+            <Route path="toxina-botulinica" element={<ToxinaBotulinicaPage />} />
+            <Route path="peeling" element={<PeelingPage />} />
+          </Route>
+
+          {/* Ethnic Skin Routes */}
+          <Route path="/ethnic-skin">
+            <Route path="acne" element={<EthnicSkinAcnePage />} />
+            <Route path="melasma" element={<EthnicSkinMelasmaPage />} />
           </Route>
 
           {/* Contact Routes */}
