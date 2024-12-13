@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { DockMenu } from "@/components/dock-menu";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { MarketingScripts } from "@/components/MarketingScripts";
 
 // Pages
 import { HomePage } from "./pages/home";
@@ -44,7 +46,8 @@ import { BrazilianSkinManchasSolaresPage } from "./pages/brazilian-skin/manchas-
 
 export function App() {
   return (
-    <>
+    <HelmetProvider>
+      <MarketingScripts />
       <Header />
       <DockMenu />
       <WhatsAppButton />
@@ -106,6 +109,6 @@ export function App() {
       </main>
       <Footer />
       <Toaster />
-    </>
+    </HelmetProvider>
   );
 }
