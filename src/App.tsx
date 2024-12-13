@@ -35,6 +35,10 @@ import { EthnicSkinAcnePage } from "./pages/ethnic-skin/acne/index";
 import { EthnicSkinMelasmaPage } from "./pages/ethnic-skin/melasma/index";
 import { EthnicSkinScarsPage } from "./pages/ethnic-skin/scars/index";
 import { EthnicSkinHyperpigmentationPage } from "./pages/ethnic-skin/hyperpigmentation/index";
+import { BrazilianSkinMorenaPage } from "./pages/brazilian-skin/morena/index";
+import { BrazilianSkinMiscigenadaPage } from "./pages/brazilian-skin/miscigenada/index";
+import { BrazilianSkinFotoenvelhecimentoPage } from "./pages/brazilian-skin/fotoenvelhecimento/index";
+import { BrazilianSkinManchasSolaresPage } from "./pages/brazilian-skin/manchas-solares/index";
 
 export function App() {
   return (
@@ -78,6 +82,14 @@ export function App() {
             <Route path="melasma" element={<EthnicSkinMelasmaPage />} />
             <Route path="scars" element={<EthnicSkinScarsPage />} />
             <Route path="hyperpigmentation" element={<EthnicSkinHyperpigmentationPage />} />
+          </Route>
+
+          {/* Brazilian Skin Routes */}
+          <Route path="/brazilian-skin">
+            <Route path="morena" element={<BrazilianSkinMorenaPage />} />
+            <Route path="miscigenada" element={<BrazilianSkinMiscigenadaPage />} />
+            <Route path="fotoenvelhecimento" element={<BrazilianSkinFotoenvelhecimentoPage />} />
+            <Route path="manchas-solares" element={<BrazilianSkinManchasSolaresPage />} />
           </Route>
 
           {/* Contact Routes */}
