@@ -15,6 +15,7 @@ import { ProfilePage } from "./pages/profile";
 import { ClinicPage } from "./pages/clinic";
 import { CoursesPage } from "./pages/courses";
 import { ContactPage } from "./pages/contact";
+import TreatmentsPage from "@/pages/treatments";
 
 // Articles Pages
 import { PressPage } from "./pages/articles/press";
@@ -62,6 +63,7 @@ export function App() {
             <Route path="/clinic" element={<ClinicPage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/treatments" element={<TreatmentsPage />} />
 
             {/* Press Routes */}
             <Route path="/press" element={<PressPage />} />

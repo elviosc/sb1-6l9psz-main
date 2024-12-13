@@ -40,35 +40,38 @@ const treatments = [
   }
 ];
 
-export function TreatmentsPage() {
+export default function TreatmentsPage() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-[#fff5f8]">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-[#6f0d44] mb-6">
-            Nossos Tratamentos
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            Oferecemos uma ampla gama de tratamentos dermatológicos e estéticos, 
-            utilizando as técnicas mais avançadas e tecnologias de última geração.
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-gradient-to-b from-white via-[#fff5f8] to-white">
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto text-center mb-16"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-[#6f0d44] mb-6">
+              Nossos Tratamentos
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              Oferecemos uma ampla gama de tratamentos dermatológicos e estéticos, 
+              utilizando as técnicas mais avançadas e tecnologias de última geração.
+            </p>
+          </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {treatments.map((treatment, index) => (
-            <TreatmentCard
-              key={index}
-              {...treatment}
-            />
-          ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {treatments.map((treatment, index) => (
+              <TreatmentCard
+                key={treatment.href}
+                {...treatment}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
