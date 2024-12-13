@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { PressHero } from "@/components/press/press-hero";
 import { PressGrid } from "@/components/press/press-grid";
 
