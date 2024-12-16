@@ -4,12 +4,15 @@ export function DoctorProfile() {
   return (
     <section className="w-full bg-gradient-to-b from-white to-[#fff5f8] py-16 md:py-24">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-light text-[#6f0d44] mb-2">
+            Dra. Luciana Maluf
+          </h2>
+          <div className="w-24 h-1 bg-[#6f0d44]/30 mx-auto"></div>
+        </div>
         <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           <div className="relative order-2 lg:order-1">
             <div className="absolute -left-4 top-0 w-1 h-32 bg-[#6f0d44]/30"></div>
-            <h2 className="text-3xl md:text-4xl font-light text-[#6f0d44] mb-2">
-              Dra. Luciana Maluf
-            </h2>
             <h3 className="text-lg md:text-xl text-[#6f0d44]/70 mb-6">
               Dermatologista CRM 113.699 RQE:34.552
             </h3>

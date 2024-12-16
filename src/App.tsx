@@ -37,6 +37,9 @@ import { MelasmaPage } from "./pages/ethnic-skin/melasma";
 import { AcnePage } from "./pages/ethnic-skin/acne";
 import { HyperpigmentationPage } from "./pages/ethnic-skin/hyperpigmentation";
 import { ScarsPage } from "./pages/ethnic-skin/scars";
+import { FacialHarmonizationArticlePage } from "./pages/articles/facial-harmonization";
+import { FacialRejuvenationArticlePage } from "./pages/articles/facial-rejuvenation";
+import { SkincareGuideArticlePage } from "./pages/articles/skincare-guide";
 
 function App() {
   return (
@@ -76,6 +79,9 @@ function App() {
               <Route path="blog/all" element={<BlogListPage />} />
               <Route path="blog/:slug" element={<BlogPostPage />} />
               <Route path="videos" element={<VideosPage />} />
+              <Route path="facial-harmonization" element={<FacialHarmonizationArticlePage />} />
+              <Route path="facial-rejuvenation" element={<FacialRejuvenationArticlePage />} />
+              <Route path="skincare-guide" element={<SkincareGuideArticlePage />} />
             </Route>
             <Route path="courses" element={<CoursesPage />} />
             <Route path="profile" element={<ProfilePage />} />

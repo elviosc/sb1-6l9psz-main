@@ -49,7 +49,7 @@ export const NAVIGATION_ITEMS = [
     title: 'Artigos',
     href: '/articles',
     subItems: [
-      { title: 'Imprensa', href: '/articles/press' },
+      { title: 'Imprensa', href: '/press' },
       { title: 'Vídeos', href: '/articles/videos' },
       { title: 'Blog', href: '/articles/blog/all' }
     ]

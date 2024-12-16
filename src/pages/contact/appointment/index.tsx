@@ -102,15 +102,9 @@ Enviado através do site`;
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#6f0d44] mb-4">
-            Agende sua Consulta
-          </h1>
-          <p className="text-gray-600 text-lg md:text-xl">
-            Preencha o formulário abaixo e entraremos em contato em breve.
-          </p>
-        </div>
-
+        <h1 className="text-4xl md:text-5xl font-bold text-[#6f0d44] mb-8 text-center">
+          Agende sua Consulta
+        </h1>
         <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
           <form 
             onSubmit={handleSubmit}
@@ -179,25 +173,13 @@ Enviado através do site`;
               />
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
+            <div className="flex flex-col space-y-4">
+              <button
                 type="submit"
-                className="bg-[#6f0d44] hover:bg-[#6f0d44]/90 w-full sm:w-auto transition-all duration-300"
+                className="w-full bg-[#6f0d44] text-white py-3 px-6 rounded-lg hover:bg-[#6f0d44]/90 transition-colors duration-300"
               >
-                <Send className="w-4 h-4 mr-2" />
-                Enviar Solicitação
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                className="border-[#6f0d44] text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white w-full sm:w-auto transition-all duration-300"
-                asChild
-              >
-                <a href="https://wa.me/5511976614826">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Agendar via WhatsApp
-                </a>
-              </Button>
+                Solicitar Agendamento
+              </button>
             </div>
           </form>
         </div>

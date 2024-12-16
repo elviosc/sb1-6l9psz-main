@@ -40,7 +40,7 @@ const navigationItems: NavigationItem[] = [
       },
       {
         title: "Imprensa",
-        href: "/articles/press",
+        href: "/press",
       },
     ],
   },

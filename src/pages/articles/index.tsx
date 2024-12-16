@@ -8,7 +8,7 @@ const sections = [
     title: "Imprensa",
     description: "Confira as aparições da Dra. Luciana Maluf na mídia e entrevistas.",
     icon: Newspaper,
-    href: "/articles/press"
+    href: "/press"
   },
   {
     title: "Vídeos",

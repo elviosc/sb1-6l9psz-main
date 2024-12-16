@@ -5,17 +5,20 @@ const materials = [
   {
     image: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5915-scaled.jpg",
     title: "Guia Completo de Skincare",
-    description: "Descubra os segredos para uma pele radiante com nosso protocolo personalizado de cuidados diários."
+    description: "Descubra os segredos para uma pele radiante com nosso protocolo personalizado de cuidados diários.",
+    href: "/articles/skincare-guide"
   },
   {
     image: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg",
     title: "Rejuvenescimento Facial",
-    description: "Conheça as técnicas mais avançadas para preservar a jovialidade da sua pele de forma natural."
+    description: "Conheça as técnicas mais avançadas para preservar a jovialidade da sua pele de forma natural.",
+    href: "/articles/facial-rejuvenation"
   },
   {
     image: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_9160-scaled.jpg",
     title: "Harmonização Facial",
-    description: "Entenda como realçar sua beleza natural com procedimentos minimamente invasivos."
+    description: "Entenda como realçar sua beleza natural com procedimentos minimamente invasivos.",
+    href: "/articles/facial-harmonization"
   }
 ];
 
@@ -62,9 +65,12 @@ export function Materials() {
               <Button 
                 variant="ghost" 
                 className="text-[#6f0d44] hover:text-[#8b1155] p-0 group"
+                asChild
               >
-                <span className="group-hover:mr-2 transition-all">Leia mais</span>
-                <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+                <a href={material.href}>
+                  <span className="group-hover:mr-2 transition-all">Leia mais</span>
+                  <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+                </a>
               </Button>
             </motion.div>
           ))}

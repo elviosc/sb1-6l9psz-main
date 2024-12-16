@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import { DrawerMenu } from "./drawer-menu";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -7,7 +9,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { motion } from "framer-motion";
 
 const treatments = [
   [
@@ -40,17 +41,6 @@ const brazilianSkin = [
   { title: "Manchas Solares", href: "/brazilian-skin/manchas-solares" }
 ];
 
-const about = [
-  { name: "Perfil Profissional", href: "/profile" },
-  { name: "A Clínica", href: "/clinic" },
-  { name: "Cursos", href: "/courses" },
-];
-
-const contact = [
-  { name: "Agendar Consulta", href: "/contact/appointment" },
-  { name: "Carreiras", href: "/contact/careers" },
-];
-
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#6f0d44]/95 backdrop-blur-md border-b border-[#6f0d44]/10">
@@ -73,6 +63,55 @@ export function Header() {
           <nav className="hidden lg:block">
             <NavigationMenu>
               <NavigationMenuList className="space-x-1">
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
+                    Sobre
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[500px] grid-cols-2 gap-3 p-4">
+                      <li>
+                        <NavigationMenuLink
+                          href="/profile"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
+                        >
+                          <div className="text-sm font-medium text-[#6f0d44]">
+                            Perfil Profissional
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Conheça a trajetória e especialização da Dra. Luciana Maluf
+                          </p>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink
+                          href="/clinic"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
+                        >
+                          <div className="text-sm font-medium text-[#6f0d44]">
+                            A Clínica
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Conheça nossa estrutura e equipe especializada
+                          </p>
+                        </NavigationMenuLink>
+                      </li>
+                      <li className="col-span-2">
+                        <NavigationMenuLink
+                          href="/courses"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
+                        >
+                          <div className="text-sm font-medium text-[#6f0d44]">
+                            Cursos
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Cursos e capacitações para profissionais da área
+                          </p>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
                     Tratamentos
@@ -171,84 +210,10 @@ export function Header() {
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
-                    Sobre
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[500px] grid-cols-2 gap-3 p-4">
-                      <li>
-                        <NavigationMenuLink
-                          href="/profile"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Perfil Profissional
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
-                            Conheça a trajetória e especialização da Dra. Luciana Maluf
-                          </p>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink
-                          href="/clinic"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            A Clínica
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
-                            Conheça nossa estrutura e equipe especializada
-                          </p>
-                        </NavigationMenuLink>
-                      </li>
-                      <li className="col-span-2">
-                        <NavigationMenuLink
-                          href="/courses"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Cursos
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
-                            Cursos e capacitações para profissionais da área
-                          </p>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
-                    Imprensa
+                    Artigos
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[600px] grid-cols-[1fr_1fr] gap-3 p-4">
-                      <li className="row-span-2">
-                        <NavigationMenuLink asChild>
-                          <a
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#6f0d44]/50 to-[#6f0d44] p-6 no-underline outline-none focus:shadow-md"
-                            href="/press"
-                          >
-                            <div className="mt-4 mb-2 text-lg font-medium text-white">
-                              Imprensa
-                            </div>
-                            <p className="text-sm leading-tight text-white/90">
-                              Confira as principais aparições e menções na mídia.
-                            </p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink
-                          href="/press"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Notícias e Artigos
-                          </div>
-                        </NavigationMenuLink>
-                      </li>
                       <li>
                         <NavigationMenuLink
                           href="/articles/blog/all"
@@ -262,6 +227,19 @@ export function Header() {
                           </p>
                         </NavigationMenuLink>
                       </li>
+                      <li>
+                        <NavigationMenuLink
+                          href="/press"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
+                        >
+                          <div className="text-sm font-medium text-[#6f0d44]">
+                            Imprensa
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Confira as principais aparições e menções na mídia
+                          </p>
+                        </NavigationMenuLink>
+                      </li>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -271,22 +249,7 @@ export function Header() {
                     Contato
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[600px] grid-cols-[1fr_1fr] gap-3 p-4">
-                      <li className="row-span-2">
-                        <NavigationMenuLink asChild>
-                          <a
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#6f0d44]/50 to-[#6f0d44] p-6 no-underline outline-none focus:shadow-md"
-                            href="/contact"
-                          >
-                            <div className="mt-4 mb-2 text-lg font-medium text-white">
-                              Contato
-                            </div>
-                            <p className="text-sm leading-tight text-white/90">
-                              Entre em contato conosco.
-                            </p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
+                    <ul className="grid w-[500px] grid-cols-2 gap-3 p-4">
                       <li>
                         <NavigationMenuLink
                           href="/contact/appointment"
@@ -314,14 +277,19 @@ export function Header() {
             </NavigationMenu>
           </nav>
 
-          <Button
-            className="hidden lg:flex bg-[#6f0d44] text-white hover:bg-[#8b1155] transition-colors duration-300"
-            asChild
-          >
-            <a href="/contact/appointment">
-              Agende sua Consulta
-            </a>
-          </Button>
+          <div className="flex items-center gap-4">
+            <Button
+              className="hidden lg:flex bg-white text-[#6f0d44] hover:bg-white/90 transition-colors duration-300"
+              asChild
+            >
+              <a href="/contact/appointment">
+                Agende sua Consulta
+              </a>
+            </Button>
+            <div className="lg:hidden">
+              <DrawerMenu />
+            </div>
+          </div>
         </div>
       </div>
     </header>
