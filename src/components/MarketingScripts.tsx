@@ -1,12 +1,5 @@
 import { useEffect } from 'react';
 
-interface ScriptConfig {
-  src: string;
-  id: string;
-  async?: boolean;
-  defer?: boolean;
-}
-
 export function MarketingScripts() {
   useEffect(() => {
     // Google Analytics

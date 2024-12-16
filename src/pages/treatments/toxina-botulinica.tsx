@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Clock, CheckCircle2, XCircle } from "lucide-react";
+import { ChevronRight, Clock, CheckCircle2, XCircle, ArrowRight } from "lucide-react";
 import { ToxinaHero } from "@/components/treatments/toxina/hero";
 import { ToxinaAreas } from "@/components/treatments/toxina/areas";
 import { ToxinaCare } from "@/components/treatments/toxina/care";
 import { ToxinaMyths } from "@/components/treatments/toxina/myths";
-import { ToxinaGallery } from "@/components/treatments/toxina/gallery";
 import { ToxinaFAQ } from "@/components/treatments/toxina/faq";
 
 export function ToxinaBotulinicaPage() {
@@ -75,7 +74,7 @@ export function ToxinaBotulinicaPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-[#6f0d44] rounded-lg transform rotate-3" />
                 <img
-                  src="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
+                  src="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5915-scaled.jpg"
                   alt="Aplicação de Toxina Botulínica"
                   className="relative rounded-lg shadow-xl transform -rotate-3 transition-transform hover:rotate-0 duration-500 w-full"
                 />
@@ -94,35 +93,35 @@ export function ToxinaBotulinicaPage() {
       {/* Myths and Facts */}
       <ToxinaMyths />
 
-      {/* Results Gallery */}
-      <ToxinaGallery />
-
       {/* FAQ */}
       <ToxinaFAQ />
 
-      {/* CTA Section */}
-      <section className="py-24 bg-[#6f0d44]">
-        <div className="container mx-auto px-4">
+      {/* Schedule */}
+      <section className="py-24 bg-gradient-to-b from-[#fff5f8] to-white">
+        <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-2xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Pronta para Começar?
+            <h2 className="text-3xl font-bold text-[#6f0d44] mb-6">
+              Agende sua Consulta
             </h2>
-            <p className="text-lg text-white/90 mb-8">
-              Agende uma consulta e descubra como a toxina botulínica pode 
-              ajudar você a alcançar resultados naturais e duradouros.
+            <p className="text-lg text-gray-600 mb-8">
+              Entre em contato conosco para agendar sua avaliação e descobrir como 
+              a toxina botulínica pode ajudar você a alcançar seus objetivos.
             </p>
             <Button
+              asChild
               size="lg"
-              className="bg-white text-[#6f0d44] hover:bg-white/90 text-lg px-8"
+              className="bg-[#6f0d44] hover:bg-[#8b1055] text-white"
             >
-              Agende sua Avaliação
-              <ChevronRight className="ml-2 h-5 w-5" />
+              <a href="/contact/appointment">
+                Agendar Consulta
+                <ChevronRight className="w-4 h-4 ml-2" />
+              </a>
             </Button>
           </motion.div>
         </div>

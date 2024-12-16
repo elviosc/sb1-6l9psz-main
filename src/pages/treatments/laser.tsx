@@ -17,13 +17,7 @@ export function LaserPage() {
       duration="30 a 60 minutos por sessão"
       recovery="24 a 72 horas"
       results="Progressivos ao longo das sessões"
-      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/CCHI8115.jpg"
-      beforeAfterImages={[
-        {
-          before: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_9160-scaled.jpg",
-          after: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5938-scaled.jpg"
-        }
-      ]}
+      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
     />
   );
 }

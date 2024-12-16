@@ -17,13 +17,7 @@ export function FiosPDOPage() {
       duration="30 a 60 minutos"
       recovery="3 a 7 dias"
       results="12 a 18 meses"
-      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5938-scaled.jpg"
-      beforeAfterImages={[
-        {
-          before: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5915-scaled.jpg",
-          after: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/CCHI8115.jpg"
-        }
-      ]}
+      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
     />
   );
 }

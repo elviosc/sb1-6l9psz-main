@@ -21,6 +21,10 @@ import { ToxinaBotulinicaPage } from "./pages/treatments/toxina-botulinica";
 import { FiosPDOPage } from "./pages/treatments/fios-pdo";
 import { HarmonizacaoFacialPage } from "./pages/treatments/harmonizacao-facial";
 import { PeelingPage } from "./pages/treatments/peeling";
+import { BioestimuladoresPage } from "./pages/treatments/bioestimuladores";
+import { LaserPage } from "./pages/treatments/laser";
+import { PreenchimentoPage } from "./pages/treatments/preenchimento";
+import { SkinboosterPage } from "./pages/treatments/skinbooster";
 import { BrazilianSkinFotoenvelhecimentoPage } from "./pages/brazilian-skin/fotoenvelhecimento";
 import { BrazilianSkinMorenaPage } from "./pages/brazilian-skin/morena";
 import { BrazilianSkinMiscigenadaPage } from "./pages/brazilian-skin/miscigenada";
@@ -28,7 +32,12 @@ import { BrazilianSkinManchasSolaresPage } from "./pages/brazilian-skin/manchas-
 import { AppointmentPage } from "./pages/contact/appointment";
 import { LocationPage } from "./pages/contact/location";
 import { CareersPage } from "./pages/careers";
-import { Header } from "@/components/header";
+import { ProfilePage } from "./pages/profile";
+import { CoursesPage } from "./pages/courses";
+import { MelasmaPage } from "./pages/ethnic-skin/melasma";
+import { AcnePage } from "./pages/ethnic-skin/acne";
+import { HyperpigmentationPage } from "./pages/ethnic-skin/hyperpigmentation";
+import { ScarsPage } from "./pages/ethnic-skin/scars";
 
 function App() {
   return (
@@ -40,35 +49,38 @@ function App() {
             <Route path="about" element={<AboutPage />} />
             <Route path="clinic" element={<ClinicPage />} />
             <Route path="contact" element={<ContactPage />} />
+            <Route path="contact/appointment" element={<AppointmentPage />} />
+            <Route path="contact/location" element={<LocationPage />} />
+            <Route path="contact/careers" element={<CareersPage />} />
             <Route path="ethnic-skin" element={<EthnicSkinPage />} />
-            <Route path="brazilian-skin">
-              <Route index element={<BrazilianSkinPage />} />
-              <Route path="fotoenvelhecimento" element={<BrazilianSkinFotoenvelhecimentoPage />} />
-              <Route path="morena" element={<BrazilianSkinMorenaPage />} />
-              <Route path="miscigenada" element={<BrazilianSkinMiscigenadaPage />} />
-              <Route path="manchas-solares" element={<BrazilianSkinManchasSolaresPage />} />
-            </Route>
-            <Route path="treatments">
-              <Route index element={<TreatmentsPage />} />
-              <Route path="toxina-botulinica" element={<ToxinaBotulinicaPage />} />
-              <Route path="fios-pdo" element={<FiosPDOPage />} />
-              <Route path="harmonizacao-facial" element={<HarmonizacaoFacialPage />} />
-              <Route path="peeling" element={<PeelingPage />} />
-            </Route>
+            <Route path="ethnic-skin/melasma" element={<MelasmaPage />} />
+            <Route path="ethnic-skin/acne" element={<AcnePage />} />
+            <Route path="ethnic-skin/hyperpigmentation" element={<HyperpigmentationPage />} />
+            <Route path="ethnic-skin/scars" element={<ScarsPage />} />
+            <Route path="brazilian-skin" element={<BrazilianSkinPage />} />
+            <Route path="brazilian-skin/fotoenvelhecimento" element={<BrazilianSkinFotoenvelhecimentoPage />} />
+            <Route path="brazilian-skin/morena" element={<BrazilianSkinMorenaPage />} />
+            <Route path="brazilian-skin/miscigenada" element={<BrazilianSkinMiscigenadaPage />} />
+            <Route path="brazilian-skin/manchas-solares" element={<BrazilianSkinManchasSolaresPage />} />
+            <Route path="treatments" element={<TreatmentsPage />} />
+            <Route path="treatments/bioestimuladores" element={<BioestimuladoresPage />} />
+            <Route path="treatments/toxina-botulinica" element={<ToxinaBotulinicaPage />} />
+            <Route path="treatments/fios-pdo" element={<FiosPDOPage />} />
+            <Route path="treatments/harmonizacao-facial" element={<HarmonizacaoFacialPage />} />
+            <Route path="treatments/peeling" element={<PeelingPage />} />
+            <Route path="treatments/laser" element={<LaserPage />} />
+            <Route path="treatments/preenchimento" element={<PreenchimentoPage />} />
+            <Route path="treatments/skinbooster" element={<SkinboosterPage />} />
             <Route path="press" element={<PressPage />} />
             <Route path="articles">
-              <Route path="blog">
-                <Route index element={<Navigate to="/articles/blog/all" replace />} />
-                <Route path="all" element={<BlogListPage />} />
-                <Route path=":slug" element={<BlogPostPage />} />
-              </Route>
+              <Route index element={<Navigate to="/articles/blog/all" replace />} />
+              <Route path="blog/all" element={<BlogListPage />} />
+              <Route path="blog/:slug" element={<BlogPostPage />} />
               <Route path="videos" element={<VideosPage />} />
             </Route>
-            <Route path="careers" element={<CareersPage />} />
-            <Route path="contact">
-              <Route path="appointment" element={<AppointmentPage />} />
-              <Route path="location" element={<LocationPage />} />
-            </Route>
+            <Route path="careers" element={<Navigate to="/contact/careers" replace />} />
+            <Route path="courses" element={<CoursesPage />} />
+            <Route path="profile" element={<ProfilePage />} />
           </Route>
         </Routes>
         <Toaster />

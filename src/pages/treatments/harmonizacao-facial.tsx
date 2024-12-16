@@ -17,13 +17,7 @@ export function HarmonizacaoFacialPage() {
       duration="60 a 120 minutos"
       recovery="5 a 7 dias"
       results="12 a 24 meses"
-      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
-      beforeAfterImages={[
-        {
-          before: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5915-scaled.jpg",
-          after: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_9160-scaled.jpg"
-        }
-      ]}
+      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5915-scaled.jpg"
     />
   );
 }

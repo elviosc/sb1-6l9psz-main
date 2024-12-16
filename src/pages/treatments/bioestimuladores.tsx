@@ -17,13 +17,7 @@ export function BioestimuladoresPage() {
       duration="60 a 90 minutos"
       recovery="3 a 5 dias"
       results="4 a 24 meses"
-      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5915-scaled.jpg"
-      beforeAfterImages={[
-        {
-          before: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg",
-          after: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5938-scaled.jpg"
-        }
-      ]}
+      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5938-scaled.jpg"
     />
   );
 }

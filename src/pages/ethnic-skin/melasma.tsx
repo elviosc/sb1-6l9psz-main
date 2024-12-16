@@ -18,13 +18,7 @@ export function MelasmaPage() {
       duration="30 a 45 minutos por sessão"
       recovery="24 a 48 horas"
       results="3 a 6 meses"
-      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5915-scaled.jpg"
-      beforeAfterImages={[
-        {
-          before: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg",
-          after: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5938-scaled.jpg"
-        }
-      ]}
+      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
     />
   );
 }

@@ -1,4 +1,3 @@
-import { Menu, X, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -9,7 +8,6 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const treatments = [
   [

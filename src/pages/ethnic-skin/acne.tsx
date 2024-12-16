@@ -18,13 +18,7 @@ export function AcnePage() {
       duration="40 a 60 minutos por sessão"
       recovery="24 a 48 horas"
       results="2 a 6 meses para controle completo"
-      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_9160-scaled.jpg"
-      beforeAfterImages={[
-        {
-          before: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5915-scaled.jpg",
-          after: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
-        }
-      ]}
+      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
     />
   );
 }

@@ -48,7 +48,7 @@ export function PeelingPage() {
         <div className="absolute inset-0 w-full h-full">
           <div className="relative w-full h-full">
             <img
-              src="https://lucianamaluf.com.br/wp-content/uploads/2024/11/peeling-hero.jpg"
+              src="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
               alt="Tratamento com Peelings"
               className="absolute w-full h-full object-cover"
             />
@@ -145,7 +145,7 @@ export function PeelingPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-[#6f0d44] rounded-lg transform rotate-3" />
                 <img
-                  src="https://lucianamaluf.com.br/wp-content/uploads/2024/11/peeling-procedure.jpg"
+                  src="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
                   alt="Procedimento de Peeling"
                   className="relative rounded-lg shadow-xl transform -rotate-3 transition-transform hover:rotate-0 duration-500 w-full"
                 />
@@ -189,60 +189,6 @@ export function PeelingPage() {
               >
                 <CheckCircle2 className="w-6 h-6 text-[#6f0d44] mt-1 flex-shrink-0" />
                 <span className="text-gray-600">{benefit}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Before/After */}
-      <section className="py-24 bg-gradient-to-b from-[#fff5f8] to-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold text-[#6f0d44] mb-6">
-              Resultados Reais
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                before: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/peeling-before.jpg",
-                after: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/peeling-after.jpg"
-              }
-            ].map((images, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="space-y-4"
-              >
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <span className="block text-sm text-[#6f0d44] mb-2">Antes</span>
-                    <img
-                      src={images.before}
-                      alt="Antes do tratamento"
-                      className="rounded-lg w-full aspect-square object-cover"
-                    />
-                  </div>
-                  <div>
-                    <span className="block text-sm text-[#6f0d44] mb-2">Depois</span>
-                    <img
-                      src={images.after}
-                      alt="Depois do tratamento"
-                      className="rounded-lg w-full aspect-square object-cover"
-                    />
-                  </div>
-                </div>
               </motion.div>
             ))}
           </div>

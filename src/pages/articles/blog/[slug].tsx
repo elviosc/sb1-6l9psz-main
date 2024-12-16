@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import { Calendar, ChevronLeft, User, Clock, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";

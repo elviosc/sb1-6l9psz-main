@@ -17,13 +17,10 @@ export function BrazilianSkinManchasSolaresPage() {
       duration="30 a 45 minutos por sessão"
       recovery="24 a 48 horas"
       results="2 a 4 meses"
-      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/CCHI8115.jpg"
-      beforeAfterImages={[
-        {
-          before: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg",
-          after: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5938-scaled.jpg"
-        }
-      ]}
+      image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
     />
   );
 }
+
+export const BrazilianSkinManchasSolares = BrazilianSkinManchasSolaresPage;
+export default BrazilianSkinManchasSolaresPage;

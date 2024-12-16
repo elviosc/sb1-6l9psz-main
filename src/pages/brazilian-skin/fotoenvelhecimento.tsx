@@ -18,14 +18,9 @@ export function BrazilianSkinFotoenvelhecimentoPage() {
       recovery="24 a 72 horas"
       results="3 a 6 meses"
       image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
-      beforeAfterImages={[
-        {
-          before: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5938-scaled.jpg",
-          after: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_9160-scaled.jpg"
-        }
-      ]}
     />
   );
 }
 
+export const BrazilianSkinFotoenvelhecimento = BrazilianSkinFotoenvelhecimentoPage;
 export default BrazilianSkinFotoenvelhecimentoPage;

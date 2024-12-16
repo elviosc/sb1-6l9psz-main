@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 
 export function ClinicGallery() {
-  const [currentImage, setCurrentImage] = useState(0);
-
   const images = [
     "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5938-scaled.jpg",
     "https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg",
