@@ -150,14 +150,68 @@ const pressArticles = [
 export default function PressPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-[#fff5f8]">
-      <div className="container mx-auto px-4 py-16">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-[500px] w-full bg-gradient-to-r from-[#6f0d44] to-[#9b1b47] overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{ backgroundImage: 'url("/pattern.svg")', backgroundSize: '30px' }} />
+        </div>
+
+        {/* Content */}
+        <div className="container mx-auto px-4 h-full flex flex-col justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-4xl md:text-6xl font-light mb-6 text-white">
+              Imprensa
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+              Acompanhe as principais aparições da Dra. Luciana Maluf na mídia, artigos publicados e contribuições para o campo da dermatologia.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#articles"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-white text-[#6f0d44] hover:bg-[#fff5f8] transition-colors duration-300"
+              >
+                Ver Artigos
+              </a>
+              <a
+                href="#press"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-transparent border border-white text-white hover:bg-white/10 transition-colors duration-300"
+              >
+                Clipping de Imprensa
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Decorative Elements */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="absolute right-0 bottom-0 w-96 h-96 translate-x-1/4 translate-y-1/4 bg-white/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="absolute left-0 top-0 w-72 h-72 -translate-x-1/4 -translate-y-1/4 bg-white/10 rounded-full blur-3xl"
+        />
+      </section>
+
+      {/* Articles Grid */}
+      <div id="articles" className="container mx-auto px-4 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-5xl font-light mb-12 text-[#6f0d44]">
-            Imprensa
+            Artigos
           </h1>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
