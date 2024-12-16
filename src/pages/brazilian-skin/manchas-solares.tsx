@@ -1,6 +1,6 @@
 import { TreatmentDetail } from "@/components/treatments/treatment-detail";
 
-export function ManchasSolaresPage() {
+export function BrazilianSkinManchasSolaresPage() {
   return (
     <TreatmentDetail
       title="Tratamento de Manchas Solares"

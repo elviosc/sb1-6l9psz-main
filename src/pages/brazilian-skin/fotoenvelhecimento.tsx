@@ -1,6 +1,6 @@
 import { TreatmentDetail } from "@/components/treatments/treatment-detail";
 
-export function FotoenvelhecimentoPage() {
+export function BrazilianSkinFotoenvelhecimentoPage() {
   return (
     <TreatmentDetail
       title="Tratamento do Fotoenvelhecimento"
@@ -27,3 +27,5 @@ export function FotoenvelhecimentoPage() {
     />
   );
 }
+
+export default BrazilianSkinFotoenvelhecimentoPage;

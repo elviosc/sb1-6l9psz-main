@@ -12,7 +12,6 @@ export function AllBlogPostsPage() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const observer = useRef<IntersectionObserver>();
-  const lastPostElementRef = useRef<HTMLDivElement>(null);
   const postsPerPage = 9;
 
   const fetchPosts = async (pageNum: number) => {
@@ -74,11 +73,6 @@ export function AllBlogPostsPage() {
       month: "long",
       year: "numeric",
     });
-  };
-
-  const stripHtmlTags = (html: string) => {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    return doc.body.textContent || "";
   };
 
   return (

@@ -4,35 +4,27 @@ import { TreatmentCard } from "@/components/treatments/treatment-card";
 const brazilianSkinTreatments = [
   {
     title: "Pele Morena",
-    description: "Tratamentos específicos para peles morenas, focando em uniformização do tom e controle da oleosidade com segurança.",
-    badge: "Personalizado",
-    icon: "✨",
-    link: "/brazilian-skin/morena",
-    index: 0
+    description: "Tratamentos específicos para peles morenas, considerando suas características únicas.",
+    image: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/pele-morena.jpg",
+    href: "/brazilian-skin/morena"
   },
   {
     title: "Pele Miscigenada",
-    description: "Protocolos adaptados para as características únicas da pele brasileira miscigenada, com foco em luminosidade e textura.",
-    badge: "Especializado",
-    icon: "🌟",
-    link: "/brazilian-skin/miscigenada",
-    index: 1
+    description: "Cuidados especializados para peles miscigenadas, respeitando sua diversidade.",
+    image: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/pele-miscigenada.jpg",
+    href: "/brazilian-skin/miscigenada"
   },
   {
     title: "Fotoenvelhecimento",
-    description: "Tratamento do envelhecimento causado pela exposição solar, comum em peles brasileiras, com tecnologias seguras e eficazes.",
-    badge: "Avançado",
-    icon: "☀️",
-    link: "/brazilian-skin/fotoenvelhecimento",
-    index: 2
+    description: "Tratamento e prevenção do envelhecimento causado pela exposição solar.",
+    image: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/fotoenvelhecimento.jpg",
+    href: "/brazilian-skin/fotoenvelhecimento"
   },
   {
     title: "Manchas Solares",
-    description: "Tratamento especializado para manchas causadas pelo sol, com protocolos específicos para peles brasileiras.",
-    badge: "Premium",
-    icon: "⭐",
-    link: "/brazilian-skin/manchas-solares",
-    index: 3
+    description: "Tratamentos avançados para manchas causadas pela exposição solar.",
+    image: "https://lucianamaluf.com.br/wp-content/uploads/2024/11/manchas-solares.jpg",
+    href: "/brazilian-skin/manchas-solares"
   }
 ];
 
@@ -51,15 +43,17 @@ export function BrazilianSkinPage() {
             Peles Brasileiras
           </h1>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            Tratamentos desenvolvidos especialmente para as características únicas da pele brasileira, 
-            respeitando nossa diversidade e particularidades. Protocolos personalizados que 
-            consideram fototipos, miscigenação e necessidades específicas.
+            Tratamentos especializados para as características únicas das peles brasileiras.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {brazilianSkinTreatments.map((treatment) => (
-            <TreatmentCard key={treatment.title} {...treatment} />
+          {brazilianSkinTreatments.map((treatment, index) => (
+            <TreatmentCard
+              key={treatment.href}
+              {...treatment}
+              index={index}
+            />
           ))}
         </div>
       </div>

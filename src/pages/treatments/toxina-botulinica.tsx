@@ -8,7 +8,7 @@ import { ToxinaMyths } from "@/components/treatments/toxina/myths";
 import { ToxinaGallery } from "@/components/treatments/toxina/gallery";
 import { ToxinaFAQ } from "@/components/treatments/toxina/faq";
 
-export function ToxinaBotulicaPage() {
+export function ToxinaBotulinicaPage() {
   return (
     <>
       <ToxinaHero />

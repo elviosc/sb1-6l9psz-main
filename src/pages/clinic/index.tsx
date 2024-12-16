@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Building2, Users, Clock, Award, MapPin, Phone, Mail, Calendar } from "lucide-react";
+import { ChevronRight, Building2, Users, Clock, Award, MapPin } from "lucide-react";
 import { ClinicGallery } from "@/components/clinic/gallery";
 import { ClinicMap } from "@/components/clinic/map";
 import { ClinicHours } from "@/components/clinic/hours";

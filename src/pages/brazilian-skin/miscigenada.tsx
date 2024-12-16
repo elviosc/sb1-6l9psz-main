@@ -1,6 +1,6 @@
 import { TreatmentDetail } from "@/components/treatments/treatment-detail";
 
-export function MiscigenadaSkinPage() {
+export function BrazilianSkinMiscigenadaPage() {
   return (
     <TreatmentDetail
       title="Pele Miscigenada"

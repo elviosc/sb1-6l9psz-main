@@ -34,7 +34,7 @@ export function Materials() {
             Conteúdo Exclusivo
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Mantenha-se atualizado com nossos materiais especialmente desenvolvidos por especialistas
+            Mantenha-se atualizado com nossos materiais especialmente desenvolvidos para te ajudar no dia a dia
           </p>
         </motion.div>
 

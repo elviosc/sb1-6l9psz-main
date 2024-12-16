@@ -20,7 +20,7 @@ const sections = [
     title: "Blog",
     description: "Leia artigos sobre dermatologia, tratamentos e cuidados com a pele.",
     icon: BookOpen,
-    href: "/articles/blog"
+    href: "/articles/blog/all"
   }
 ];
 

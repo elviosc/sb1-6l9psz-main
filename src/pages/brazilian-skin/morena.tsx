@@ -1,4 +1,5 @@
 import { TreatmentDetail } from "@/components/treatments/treatment-detail";
+import { Card } from "@/components/ui/card";
 
 export function MorenaSkinPage() {
   return (
@@ -25,5 +26,18 @@ export function MorenaSkinPage() {
         }
       ]}
     />
+  );
+}
+
+export function BrazilianSkinMorenaPage() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-[#6f0d44] mb-8">Pele Morena</h1>
+      <Card className="p-6">
+        <p className="text-gray-600">
+          Conteúdo sobre cuidados com pele morena...
+        </p>
+      </Card>
+    </div>
   );
 }

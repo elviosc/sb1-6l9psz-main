@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 const treatments = [
   {
     title: "Fios de PDO",
-    description: "Tecnologia avançada para lifting facial não cirúrgico. Estimula colágeno e promove sustentação natural da pele.",
+    description: "Tecnologia avançada para estimular colágeno e promover sustentação natural da pele.",
     badge: "Inovador",
     icon: "🔬",
     link: "/treatments/fios-pdo"
@@ -20,7 +20,7 @@ const treatments = [
   },
   {
     title: "Preenchimento",
-    description: "Harmonização facial com ácido hialurônico de última geração. Resultados personalizados para realçar sua beleza natural.",
+    description: "Procedimento feito com ácido hialurônico, totalmente natural e seguro. Resultados personalizados para realçar sua beleza.",
     badge: "Premium",
     icon: "💫",
     link: "/treatments/preenchimento"

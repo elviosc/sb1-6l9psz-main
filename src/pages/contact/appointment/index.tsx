@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Calendar, Clock, Send } from "lucide-react";
+import { Calendar, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 

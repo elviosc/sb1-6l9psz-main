@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { Bookmark, BookmarkCheck, ChevronRight } from "lucide-react";
-import { SEO } from "@/components/SEO";
-import { useBookmarks } from "@/contexts/BookmarkContext";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Bookmark } from "lucide-react";
+import { useBookmarks } from "@/contexts/bookmark-context";
+import { useEffect, useState } from "react";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
-interface BlogPost {
+interface WordPressPost {
   id: number;
   title: {
     rendered: string;
@@ -16,149 +18,191 @@ interface BlogPost {
   date: string;
   slug: string;
   _embedded?: {
-    'wp:featuredmedia'?: Array<{
+    "wp:featuredmedia"?: Array<{
       source_url: string;
     }>;
+    author?: Array<{
+      name: string;
+    }>;
   };
+  link: string;
+  categories: number[];
 }
 
-const POSTS_PER_PAGE = 6;
+interface Category {
+  id: number;
+  name: string;
+}
 
 export function BlogListPage() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
+  const [posts, setPosts] = useState<WordPressPost[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const { bookmarks, toggleBookmark, isBookmarked } = useBookmarks();
-  const observer = useRef<IntersectionObserver>();
-
-  const lastPostElementRef = useCallback((node: HTMLDivElement | null) => {
-    if (loading) return;
-    if (observer.current) observer.current.disconnect();
-    observer.current = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting && hasMore) {
-        setPage(prevPage => prevPage + 1);
-      }
-    });
-    if (node) observer.current.observe(node);
-  }, [loading, hasMore]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const postsPerPage = 12;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        setLoading(true);
         const response = await fetch(
-          `https://lucianamaluf.com.br/wp-json/wp/v2/posts?_embed&per_page=${POSTS_PER_PAGE}&page=${page}`
+          `https://lucianamaluf.com.br/wp-json/wp/v2/posts?_embed&per_page=${postsPerPage}&page=${currentPage}`
         );
-        const data = await response.json();
-        
-        // Check if we've reached the end of available posts
-        const totalPages = parseInt(response.headers.get('X-WP-TotalPages') || '1');
-        setHasMore(page < totalPages);
-
-        if (page === 1) {
-          setPosts(data);
-        } else {
-          setPosts(prevPosts => [...prevPosts, ...data]);
+        if (!response.ok) {
+          throw new Error('Failed to fetch posts');
         }
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-        setHasMore(false);
+        const totalPosts = response.headers.get('X-WP-Total');
+        const wpTotalPages = response.headers.get('X-WP-TotalPages');
+        setTotalPages(wpTotalPages ? parseInt(wpTotalPages) : 1);
+        
+        const data = await response.json();
+        setPosts(data);
+      } catch (err) {
+        setError('Erro ao carregar os posts. Por favor, tente novamente mais tarde.');
+        console.error('Error fetching posts:', err);
       } finally {
         setLoading(false);
       }
     };
 
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(
+          "https://lucianamaluf.com.br/wp-json/wp/v2/categories"
+        );
+        if (!response.ok) {
+          throw new Error('Failed to fetch categories');
+        }
+        const data = await response.json();
+        setCategories(data);
+      } catch (err) {
+        console.error('Error fetching categories:', err);
+      }
+    };
+
     fetchPosts();
-  }, [page]);
+    fetchCategories();
+  }, [currentPage]);
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffTime = Math.abs(now.getTime() - date.getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const getCategoryName = (categoryId: number) => {
+    const category = categories.find(cat => cat.id === categoryId);
+    return category?.name || 'Sem categoria';
+  };
 
-    if (diffDays === 1) return "Há 1 dia";
-    if (diffDays < 7) return `Há ${diffDays} dias`;
-    if (diffDays < 30) return `Há ${Math.floor(diffDays / 7)} semanas`;
-    if (diffDays < 365) return `Há ${Math.floor(diffDays / 30)} meses`;
-    return `Há ${Math.floor(diffDays / 365)} anos`;
+  const stripHtmlTags = (html: string) => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.textContent || '';
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <SEO
-        title="Blog | Luciana Maluf"
-        description="Confira as últimas notícias e artigos sobre tecnologia, inovação e transformação digital."
-      />
-
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">Blog</h1>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <AnimatePresence>
-          {posts.map((post, index) => (
-            <motion.div
-              key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-              ref={index === posts.length - 1 ? lastPostElementRef : null}
-            >
-              <Link to={`/articles/blog/${post.slug}`}>
-                <img
-                  src={post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/images/placeholder.jpg'}
-                  alt={post.title.rendered}
-                  className="w-full h-48 object-cover"
-                />
-              </Link>
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm text-gray-500">{formatDate(post.date)}</span>
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      toggleBookmark(post.slug);
-                    }}
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    {isBookmarked(post.slug) ? (
-                      <BookmarkCheck className="h-5 w-5" />
-                    ) : (
-                      <Bookmark className="h-5 w-5" />
-                    )}
-                  </button>
-                </div>
-                <Link to={`/articles/blog/${post.slug}`}>
-                  <h2
-                    className="text-xl font-semibold mb-2 hover:text-blue-600"
-                    dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                  />
-                </Link>
-                <div
-                  className="text-gray-600 mb-4 line-clamp-3"
-                  dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                />
-                <Link
-                  to={`/articles/blog/${post.slug}`}
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800"
-                >
-                  Ler mais
-                  <ChevronRight className="h-4 w-4 ml-1" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
-
-      {loading && (
-        <div className="flex justify-center items-center py-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+    <section className="py-24 bg-gradient-to-b from-white to-[#fff5f8]">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#6f0d44] mb-6">Blog</h1>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            Fique por dentro das últimas novidades em dermatologia e cuidados com a pele
+          </p>
         </div>
-      )}
-    </div>
+
+        {loading ? (
+          <div className="flex justify-center items-center min-h-[400px]">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#6f0d44]"></div>
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-600">{error}</div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => (
+                <Card key={post.id} className="h-full bg-white/50 backdrop-blur-sm border-none hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <img
+                    src={post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || '/placeholder.jpg'}
+                    alt={post.title.rendered}
+                    className="w-full h-48 object-cover transform hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <span className="inline-block px-3 py-1 rounded-full text-sm bg-[#6f0d44]/10 text-[#6f0d44] mb-2">
+                          {post.categories[0] && getCategoryName(post.categories[0])}
+                        </span>
+                        <h2 
+                          className="text-xl font-semibold text-[#6f0d44] mb-2" 
+                          dangerouslySetInnerHTML={{ __html: post.title.rendered }} 
+                        />
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => toggleBookmark(post.id.toString())}
+                        className="mt-[-8px]"
+                      >
+                        <Bookmark
+                          className={`h-5 w-5 ${
+                            isBookmarked(post.id.toString())
+                              ? "fill-current text-[#6f0d44]"
+                              : "text-gray-500"
+                          }`}
+                        />
+                      </Button>
+                    </div>
+                    <div 
+                      className="text-gray-600 mb-4 line-clamp-3"
+                      dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                    />
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-500">
+                        {format(new Date(post.date), "d 'de' MMMM, yyyy", { locale: ptBR })}
+                      </span>
+                      <Link 
+                        to={`/articles/blog/${post.slug}`}
+                        className="group inline-flex items-center"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.scrollTo(0, 0);
+                          navigate(`/articles/blog/${post.slug}`);
+                        }}
+                      >
+                        <span className="text-[#6f0d44] group-hover:mr-2 transition-all">Ler mais</span>
+                        <span className="text-[#6f0d44] group-hover:translate-x-1 transition-transform inline-block ml-1">→</span>
+                      </Link>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            {totalPages > 1 && (
+              <div className="mt-12 flex justify-center gap-2">
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                  disabled={currentPage === 1}
+                  className="text-[#6f0d44] hover:text-[#8b1155] hover:bg-[#6f0d44]/10"
+                >
+                  ← Anterior
+                </Button>
+                <div className="flex items-center gap-2 px-4">
+                  <span className="text-[#6f0d44]">
+                    Página {currentPage} de {totalPages}
+                  </span>
+                </div>
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                  className="text-[#6f0d44] hover:text-[#8b1155] hover:bg-[#6f0d44]/10"
+                >
+                  Próxima →
+                </Button>
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    </section>
   );
 }

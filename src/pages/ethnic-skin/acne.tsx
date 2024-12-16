@@ -1,4 +1,5 @@
 import { TreatmentDetail } from "@/components/treatments/treatment-detail";
+import { Card } from "@/components/ui/card";
 
 export function AcnePage() {
   return (
@@ -25,5 +26,18 @@ export function AcnePage() {
         }
       ]}
     />
+  );
+}
+
+export function EthnicSkinAcnePage() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-[#6f0d44] mb-8">Acne em Peles Étnicas</h1>
+      <Card className="p-6">
+        <p className="text-gray-600">
+          Conteúdo sobre tratamento de acne em peles étnicas...
+        </p>
+      </Card>
+    </div>
   );
 }
