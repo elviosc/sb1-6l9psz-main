@@ -9,47 +9,27 @@ import {
 } from "@/components/ui/navigation-menu";
 import { motion } from "framer-motion";
 
-const treatments = [
-  [
-    { title: "Bioestimuladores", href: "/treatments/bioestimuladores" },
-    { title: "Fios de PDO", href: "/treatments/fios-pdo" },
-    { title: "Laser e Tecnologias", href: "/treatments/laser" },
+const navigation = {
+  treatments: [
+    { name: "Toxina Botulínica", href: "/treatments/toxina-botulinica" },
+    { name: "Fios de PDO", href: "/treatments/fios-pdo" },
+    { name: "Peelings", href: "/treatments/peelings" },
+    { name: "Bioestimuladores", href: "/treatments/bioestimuladores" },
+    { name: "Preenchimento", href: "/treatments/preenchimento" },
+    { name: "Skinbooster", href: "/treatments/skinbooster" },
+    { name: "Microagulhamento", href: "/treatments/microagulhamento" },
+    { name: "Laser", href: "/treatments/laser" },
   ],
-  [
-    { title: "Harmonização Facial", href: "/treatments/harmonizacao-facial" },
-    { title: "Preenchimento", href: "/treatments/preenchimento" },
-    { title: "Skinbooster", href: "/treatments/skinbooster" },
+  about: [
+    { name: "Sobre", href: "/about" },
+    { name: "Imprensa", href: "/press" },
+    { name: "Portfolio", href: "/portfolio" },
   ],
-  [
-    { title: "Toxina Botulínica", href: "/treatments/toxina-botulinica" },
-    { title: "Peeling", href: "/treatments/peeling" },
-  ]
-];
-
-const ethnicSkin = [
-  { title: "Melasma", href: "/ethnic-skin/melasma" },
-  { title: "Acne em Peles Negras", href: "/ethnic-skin/acne" },
-  { title: "Manchas e Hiperpigmentação", href: "/ethnic-skin/hyperpigmentation" },
-  { title: "Cicatrizes e Queloides", href: "/ethnic-skin/scars" }
-];
-
-const brazilianSkin = [
-  { title: "Pele Morena", href: "/brazilian-skin/morena" },
-  { title: "Pele Miscigenada", href: "/brazilian-skin/miscigenada" },
-  { title: "Fotoenvelhecimento", href: "/brazilian-skin/fotoenvelhecimento" },
-  { title: "Manchas Solares", href: "/brazilian-skin/manchas-solares" }
-];
-
-const articles = [
-  { title: "Blog", href: "/articles/blog/all" },
-  { title: "Vídeos", href: "/articles/videos" },
-  { title: "Imprensa", href: "/articles/press" },
-];
-
-const contact = [
-  { title: "Agendar Consulta", href: "/contact/appointment" },
-  { title: "Localização", href: "/contact/location" },
-];
+  contact: [
+    { name: "Agendar Consulta", href: "/contact/appointment" },
+    { name: "Carreiras", href: "/contact/careers" },
+  ],
+};
 
 export function Header() {
   return (
@@ -75,193 +55,44 @@ export function Header() {
               <NavigationMenuList className="space-x-1">
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
+                    Tratamentos
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4">
+                      {navigation.treatments.map((item) => (
+                        <li key={item.href}>
+                          <NavigationMenuLink
+                            href={item.href}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
+                          >
+                            <div className="text-sm font-medium text-[#6f0d44]">
+                              {item.name}
+                            </div>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
                     Sobre
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4">
-                      <li>
-                        <NavigationMenuLink
-                          href="/profile"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Perfil Profissional
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
-                            Conheça a trajetória e especialização da Dra. Luciana Maluf
-                          </p>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink
-                          href="/clinic"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            A Clínica
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
-                            Conheça nossa estrutura e equipe especializada
-                          </p>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink
-                          href="/courses"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Cursos
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
-                            Cursos e capacitações para profissionais da área
-                          </p>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
-                    Tratamentos
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[600px] md:grid-cols-3">
-                      <div>
-                        {treatments[0].map((item) => (
-                          <li key={item.href}>
-                            <NavigationMenuLink
-                              href={item.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                            >
-                              <div className="text-sm font-medium text-[#6f0d44]">
-                                {item.title}
-                              </div>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </div>
-                      <div>
-                        {treatments[1].map((item) => (
-                          <li key={item.href}>
-                            <NavigationMenuLink
-                              href={item.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                            >
-                              <div className="text-sm font-medium text-[#6f0d44]">
-                                {item.title}
-                              </div>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </div>
-                      <div>
-                        {treatments[2].map((item) => (
-                          <li key={item.href}>
-                            <NavigationMenuLink
-                              href={item.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                            >
-                              <div className="text-sm font-medium text-[#6f0d44]">
-                                {item.title}
-                              </div>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </div>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
-                    Peles Étnicas
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                      {ethnicSkin.map((item) => (
+                      {navigation.about.map((item) => (
                         <li key={item.href}>
                           <NavigationMenuLink
                             href={item.href}
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
                           >
                             <div className="text-sm font-medium text-[#6f0d44]">
-                              {item.title}
+                              {item.name}
                             </div>
                           </NavigationMenuLink>
                         </li>
                       ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
-                    Peles Brasileiras
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                      {brazilianSkin.map((item) => (
-                        <li key={item.href}>
-                          <NavigationMenuLink
-                            href={item.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                          >
-                            <div className="text-sm font-medium text-[#6f0d44]">
-                              {item.title}
-                            </div>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white focus:bg-[#6f0d44] focus:text-white active:bg-[#6f0d44] active:text-white transition-colors duration-300">
-                    Imprensa
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-6 w-[725px] lg:grid-cols-[.75fr_1fr]">
-                      <li className="row-span-3">
-                        <NavigationMenuLink asChild>
-                          <a
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#6f0d44]/50 to-[#6f0d44] p-6 no-underline outline-none focus:shadow-md"
-                            href="/press"
-                          >
-                            <div className="mt-4 mb-2 text-lg font-medium text-white">
-                              Imprensa
-                            </div>
-                            <p className="text-sm leading-tight text-white/90">
-                              Confira as principais aparições e menções na mídia.
-                            </p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink
-                          href="/press"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Notícias e Artigos
-                          </div>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink
-                          href="/articles/blog/all"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Blog
-                          </div>
-                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
-                            Artigos e dicas sobre saúde e beleza
-                          </p>
-                        </NavigationMenuLink>
-                      </li>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -271,42 +102,19 @@ export function Header() {
                     Contato
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-6 w-[725px] lg:grid-cols-[.75fr_1fr]">
-                      <li className="row-span-3">
-                        <NavigationMenuLink asChild>
-                          <a
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-[#6f0d44]/50 to-[#6f0d44] p-6 no-underline outline-none focus:shadow-md"
-                            href="/contact"
+                    <ul className="grid w-[400px] gap-3 p-4">
+                      {navigation.contact.map((item) => (
+                        <li key={item.href}>
+                          <NavigationMenuLink
+                            href={item.href}
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
                           >
-                            <div className="mt-4 mb-2 text-lg font-medium text-white">
-                              Contato
+                            <div className="text-sm font-medium text-[#6f0d44]">
+                              {item.name}
                             </div>
-                            <p className="text-sm leading-tight text-white/90">
-                              Entre em contato conosco.
-                            </p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink
-                          href="/contact"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Informações de Contato
-                          </div>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink
-                          href="/contact/location"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Como Chegar
-                          </div>
-                        </NavigationMenuLink>
-                      </li>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>

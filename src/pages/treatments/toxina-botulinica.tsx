@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Clock, CheckCircle2, XCircle, ArrowRight } from "lucide-react";
+import { ChevronRight, Clock } from "lucide-react";
 import { ToxinaHero } from "@/components/treatments/toxina/hero";
 import { ToxinaAreas } from "@/components/treatments/toxina/areas";
 import { ToxinaCare } from "@/components/treatments/toxina/care";
