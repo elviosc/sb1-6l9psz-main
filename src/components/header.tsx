@@ -41,7 +41,7 @@ const brazilianSkin = [
 ];
 
 const articles = [
-  { title: "Blog", href: "/articles/blog" },
+  { title: "Blog", href: "/articles/blog/all" },
   { title: "Vídeos", href: "/articles/videos" },
   { title: "Imprensa", href: "/articles/press" },
 ];
@@ -49,7 +49,6 @@ const articles = [
 const contact = [
   { title: "Agendar Consulta", href: "/contact/appointment" },
   { title: "Localização", href: "/contact/location" },
-  { title: "Trabalhe Conosco", href: "/contact/careers" },
 ];
 
 export function Header() {
@@ -305,16 +304,6 @@ export function Header() {
                         >
                           <div className="text-sm font-medium text-[#6f0d44]">
                             Como Chegar
-                          </div>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink
-                          href="/contact/careers"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#6f0d44]/5 hover:text-[#6f0d44] duration-300"
-                        >
-                          <div className="text-sm font-medium text-[#6f0d44]">
-                            Trabalhe Conosco
                           </div>
                         </NavigationMenuLink>
                       </li>

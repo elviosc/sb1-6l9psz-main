@@ -129,7 +129,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/articles/blog" className="hover:text-[#6f0d44] transition-colors">
+                <a href="/articles/blog/all" className="hover:text-[#6f0d44] transition-colors">
                   • Blog
                 </a>
               </li>

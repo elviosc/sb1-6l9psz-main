@@ -51,7 +51,7 @@ export const NAVIGATION_ITEMS = [
     subItems: [
       { title: 'Imprensa', href: '/articles/press' },
       { title: 'Vídeos', href: '/articles/videos' },
-      { title: 'Blog', href: '/articles/blog' }
+      { title: 'Blog', href: '/articles/blog/all' }
     ]
   },
   {

@@ -125,3 +125,5 @@ export function BlogPage() {
     </section>
   );
 }
+
+export default BlogPage;

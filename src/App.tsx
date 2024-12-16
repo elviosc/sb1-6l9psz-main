@@ -31,7 +31,6 @@ import { BrazilianSkinMiscigenadaPage } from "./pages/brazilian-skin/miscigenada
 import { BrazilianSkinManchasSolaresPage } from "./pages/brazilian-skin/manchas-solares";
 import { AppointmentPage } from "./pages/contact/appointment";
 import { LocationPage } from "./pages/contact/location";
-import { CareersPage } from "./pages/careers";
 import { ProfilePage } from "./pages/profile";
 import { CoursesPage } from "./pages/courses";
 import { MelasmaPage } from "./pages/ethnic-skin/melasma";
@@ -51,7 +50,6 @@ function App() {
             <Route path="contact" element={<ContactPage />} />
             <Route path="contact/appointment" element={<AppointmentPage />} />
             <Route path="contact/location" element={<LocationPage />} />
-            <Route path="contact/careers" element={<CareersPage />} />
             <Route path="ethnic-skin" element={<EthnicSkinPage />} />
             <Route path="ethnic-skin/melasma" element={<MelasmaPage />} />
             <Route path="ethnic-skin/acne" element={<AcnePage />} />
@@ -74,11 +72,11 @@ function App() {
             <Route path="press" element={<PressPage />} />
             <Route path="articles">
               <Route index element={<Navigate to="/articles/blog/all" replace />} />
+              <Route path="blog" element={<Navigate to="/articles/blog/all" replace />} />
               <Route path="blog/all" element={<BlogListPage />} />
               <Route path="blog/:slug" element={<BlogPostPage />} />
               <Route path="videos" element={<VideosPage />} />
             </Route>
-            <Route path="careers" element={<Navigate to="/contact/careers" replace />} />
             <Route path="courses" element={<CoursesPage />} />
             <Route path="profile" element={<ProfilePage />} />
           </Route>

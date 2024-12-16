@@ -1,15 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
 
 const sections = [
-  {
-    title: "Trabalhe Conosco",
-    description: "Faça parte da nossa equipe de profissionais qualificados.",
-    icon: Briefcase,
-    href: "/contact/careers"
-  },
   {
     title: "Agende sua Consulta",
     description: "Marque uma avaliação personalizada com a Dra. Luciana Maluf.",
@@ -43,7 +37,7 @@ export function ContactPage() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {sections.map((section, index) => (
             <motion.div
               key={index}
