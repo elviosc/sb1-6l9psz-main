@@ -41,9 +41,182 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-tap-highlight-color: transparent;
   }
+  
+  html {
+    @apply antialiased;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden min-h-screen;
     font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Prevent pull-to-refresh on mobile */
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  /* Fix iOS 100vh issue */
+  @supports (-webkit-touch-callout: none) {
+    .min-h-screen {
+      min-height: -webkit-fill-available;
+    }
+  }
+
+  /* Improve text rendering */
+  @media (min-resolution: 2dppx) {
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+
+  /* Safe area insets for notched devices */
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: min(0vmin, env(safe-area-inset-left));
+      padding-right: min(0vmin, env(safe-area-inset-right));
+      padding-top: min(0vmin, env(safe-area-inset-top));
+      padding-bottom: min(0vmin, env(safe-area-inset-bottom));
+    }
+  }
+  
+  .elementor-section {
+    position: relative;
+  }
+  
+  .elementor-section .elementor-container {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+  }
+  
+  .elementor-section.elementor-section-boxed > .elementor-container {
+    max-width: 1140px;
+  }
+  
+  .elementor-section.elementor-section-height-min-height > .elementor-container {
+    min-height: 100vh;
+  }
+  
+  .elementor-background-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .elementor-background-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+    direction: ltr;
+    pointer-events: none;
+  }
+  
+  .elementor-background-video-embed {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100vw;
+    height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+    min-height: 100vh;
+    min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+    pointer-events: none;
+    border: none;
+  }
+
+  .elementor-background-video-hosted {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100vw;
+    height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+    min-height: 100vh;
+    min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+    pointer-events: none;
+  }
+
+  .elementor-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .video-background iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 177.77777778vh; /* 16:9 */
+    height: 56.25vw; /* 16:9 */
+    min-width: 100%;
+    min-height: 100%;
+    pointer-events: none;
+    border: none;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(111, 13, 68, 0.7), rgba(111, 13, 68, 0.5));
+    z-index: 1;
+  }
+}
+
+/* Custom scrollbar */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Custom scrollbar for other browsers */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 3px;
   }
 }

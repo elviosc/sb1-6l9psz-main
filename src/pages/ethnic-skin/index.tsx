@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight, Award, Star } from "lucide-react";
+import { Check, ChevronRight, Award, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ethnicSkinTreatments = [
   {
@@ -34,152 +35,117 @@ export function EthnicSkinPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center">
-        <div className="absolute inset-0 w-full h-full">
-          <div className="relative w-full h-full">
+      <section className="relative min-h-screen w-full flex items-center">
+        <div className="absolute inset-0">
+          <div className="relative h-full">
             <img
               src="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5938-scaled.jpg"
               alt="Tratamentos para Peles Étnicas"
               className="absolute w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#6f0d44]/95 to-[#6f0d44]/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#6f0d44] via-[#6f0d44]/90 to-transparent" />
           </div>
         </div>
 
-        <div className="relative container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <div className="inline-flex items-center space-x-2 bg-white/10 rounded-full px-4 py-2 text-white mb-6">
-              <Award className="h-5 w-5" />
-              <span className="text-sm">Especialista em Peles Étnicas</span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-light mb-6 text-white tracking-tight">
-              Tratamento de
-              <br />
-              <span className="font-semibold">Peles Étnicas</span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Tratamentos especializados e personalizados para peles negras e étnicas, 
-              com protocolos específicos que respeitam as características únicas de cada tipo de pele.
-            </p>
-            <Button
-              size="lg"
-              className="bg-white text-[#6f0d44] hover:bg-white/90 text-base md:text-lg px-8"
-              asChild
+        <div className="relative container mx-auto p-0 h-full">
+          <div className="flex flex-col justify-center h-full min-h-screen max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
             >
-              <a href="/contact/appointment">
-                Agende sua Consulta
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-          </motion.div>
+              <div className="absolute -left-4 top-0 w-1 h-32 bg-white/30" />
+              <div className="inline-flex items-center space-x-2 bg-white/10 rounded-full px-4 py-2 text-white mb-6">
+                <span className="text-sm">Tratamento Especializado</span>
+                <ChevronRight className="h-4 w-4" />
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 text-white tracking-tight">
+                Pele
+                <br />
+                <span className="font-semibold">Étnica</span>
+              </h1>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg md:text-2xl mb-8 text-white/90 font-light leading-relaxed"
+            >
+              Tratamentos especializados para peles negras e étnicas, com foco na saúde e beleza natural da sua pele.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 pt-8"
+            >
+              <Link to="/contact/appointment">
+                <Button size="lg" className="bg-white text-[#6f0d44] hover:bg-white/90 text-lg h-14 px-8">
+                  Agende sua Avaliação
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="w-[30px] h-[50px] rounded-full border-2 border-white/30 flex justify-center p-2">
+            <div className="w-1 h-3 bg-white/50 rounded-full" />
+          </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-24 bg-gradient-to-b from-white to-[#fff5f8]">
-        <div className="container mx-auto px-4">
+      {/* Content Sections */}
+      <div className="bg-gradient-to-b from-white to-[#fff5f8]">
+        <div className="container mx-auto p-0 py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto mb-16"
+            className="max-w-4xl mx-auto"
           >
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              A pele é o órgão que nos envolve e que também reflete nossas origens culturais, 
-              a influência do meio ambiente e de nossos hábitos ao longo dos tempos. Cada grupo 
-              étnico guarda suas peculiaridades genéticas na pele e nos cabelos – o que requer 
-              cuidados específicos, grande conhecimento e experiência na aplicação dos tratamentos 
-              necessários.
-            </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              A Dra. Luciana Maluf tem vários anos de treinamento avançado em laser e demais 
-              terapias para tratamento de estrias, manchas e flacidez em peles de diversas etnias. 
-              Recentemente esteve em Washington, nos EUA, para aprimorar sua técnica de tratamento 
-              a laser na 'Cultura Clinic', do Dr. Eliot Battle, especialista que é referência 
-              internacional no tratamento de peles étnicas.
-            </p>
-          </motion.div>
+            <h2 className="text-3xl font-bold text-[#6f0d44] mb-12">
+              Tratamentos Especializados
+            </h2>
 
-          {/* Treatments Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {ethnicSkinTreatments.map((treatment, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+            <div className="grid md:grid-cols-2 gap-8">
+              <Link
+                to="/ethnic-skin/hyperpigmentation"
+                className="group block bg-white/50 backdrop-blur-sm p-6 rounded-lg hover:bg-white/70 transition-all duration-300"
               >
-                <Card className="h-full bg-white/50 backdrop-blur-sm border-none hover:shadow-lg transition-all duration-300">
-                  <CardHeader>
-                    <treatment.icon className="h-8 w-8 text-[#6f0d44] mb-4" />
-                    <CardTitle className="text-[#6f0d44]">{treatment.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-6">{treatment.description}</p>
-                    <Button 
-                      variant="ghost" 
-                      className="text-[#6f0d44] hover:text-[#8b1155] p-0 group"
-                      asChild
-                    >
-                      <a href={treatment.href}>
-                        <span className="group-hover:mr-2 transition-all">Saiba mais</span>
-                        <span className="group-hover:translate-x-1 transition-transform inline-block ml-1">→</span>
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Expertise Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mt-24"
-          >
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-[#6f0d44] rounded-lg transform rotate-3" />
-                <img
-                  src="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
-                  alt="Dra. Luciana Maluf - Especialista em Peles Étnicas"
-                  className="relative rounded-lg shadow-xl transform -rotate-3 transition-transform hover:rotate-0 duration-500 w-full"
-                />
-              </div>
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold text-[#6f0d44]">
-                  Experiência Internacional
-                </h2>
-                <p className="text-gray-600 leading-relaxed">
-                  A aplicação de laser para retirada de manchas e pelos em peles negras 
-                  requer técnica minuciosa para que os resultados sejam ótimos. Nossa equipe 
-                  possui treinamento especializado e utiliza as mais avançadas tecnologias 
-                  para garantir resultados seguros e eficazes.
+                <h3 className="text-xl font-semibold text-[#6f0d44] mb-4 group-hover:translate-x-2 transition-transform">
+                  Hiperpigmentação
+                  <ChevronRight className="inline-block ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-all" />
+                </h3>
+                <p className="text-gray-600">
+                  Tratamento especializado para manchas e descolorações em peles negras,
+                  com foco na uniformização segura do tom da pele.
                 </p>
-                <Button
-                  className="bg-[#6f0d44] hover:bg-[#6f0d44]/90"
-                  asChild
-                >
-                  <a href="/contact/appointment">
-                    Agende uma Avaliação
-                    <ChevronRight className="ml-2 h-5 w-5" />
-                  </a>
-                </Button>
-              </div>
+              </Link>
+
+              <Link
+                to="/ethnic-skin/scars"
+                className="group block bg-white/50 backdrop-blur-sm p-6 rounded-lg hover:bg-white/70 transition-all duration-300"
+              >
+                <h3 className="text-xl font-semibold text-[#6f0d44] mb-4 group-hover:translate-x-2 transition-transform">
+                  Cicatrizes
+                  <ChevronRight className="inline-block ml-2 h-5 w-5 opacity-0 group-hover:opacity-100 transition-all" />
+                </h3>
+                <p className="text-gray-600">
+                  Tratamento avançado para cicatrizes em peles negras, com tecnologia
+                  específica para evitar hiperpigmentação pós-inflamatória.
+                </p>
+              </Link>
             </div>
           </motion.div>
         </div>
-      </section>
+      </div>
     </>
   );
 }

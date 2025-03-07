@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { TreatmentCard } from "@/components/treatments/treatment-card";
+import { PageHero } from "@/components/ui/page-hero";
 
 const treatments = [
   {
@@ -42,36 +43,34 @@ const treatments = [
 
 export default function TreatmentsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-[#fff5f8] to-white">
-      <section className="py-24">
-        <div className="container mx-auto px-4">
+    <>
+      <PageHero
+        title="Tratamentos"
+        subtitle="Especializados"
+        description="Conheça nossa ampla gama de tratamentos dermatológicos e estéticos, desenvolvidos com as mais avançadas tecnologias e técnicas do mercado."
+        image="https://lucianamaluf.com.br/wp-content/uploads/2024/11/IMG_5927-scaled.jpg"
+      />
+
+      <div className="bg-gradient-to-b from-white via-[#fff5f8] to-white">
+        <div className="container mx-auto px-4 py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto text-center mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-[#6f0d44] mb-6">
-              Nossos Tratamentos
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Oferecemos uma ampla gama de tratamentos dermatológicos e estéticos, 
-              utilizando as técnicas mais avançadas e tecnologias de última geração.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {treatments.map((treatment, index) => (
+            {treatments.map((treatment) => (
               <TreatmentCard
                 key={treatment.href}
-                {...treatment}
-                index={index}
+                title={treatment.title}
+                description={treatment.description}
+                image={treatment.image}
+                href={treatment.href}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   );
 }

@@ -44,18 +44,39 @@ export function ToxinaHero() {
               <Button
                 size="lg"
                 className="bg-white text-[#6f0d44] hover:bg-white/90 text-lg h-14 px-8"
+                asChild
               >
-                Agende sua Consulta
-                <ChevronRight className="ml-2 h-5 w-5" />
+                <a href="/contact/appointment">
+                  Agende sua Consulta
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white/10 text-lg h-14 px-8"
+                asChild
               >
-                Saiba Mais
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <a href="#saiba-mais">
+                  Saiba Mais
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-8">
+              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                <div className="text-2xl font-light text-white mb-1">30-45</div>
+                <div className="text-white/80 text-sm">Minutos de Procedimento</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                <div className="text-2xl font-light text-white mb-1">4-6</div>
+                <div className="text-white/80 text-sm">Meses de Duração</div>
+              </div>
+              <div className="hidden sm:block bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                <div className="text-2xl font-light text-white mb-1">+15</div>
+                <div className="text-white/80 text-sm">Anos de Experiência</div>
+              </div>
             </div>
           </motion.div>
         </div>

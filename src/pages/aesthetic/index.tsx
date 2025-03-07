@@ -7,16 +7,18 @@ import { AestheticRelated } from "@/components/aesthetic/aesthetic-related";
 
 export function AestheticPage() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-[#fff5f8]">
+    <div className="flex flex-col min-h-screen">
       <AestheticHero />
       
-      <div className="container mx-auto px-4">
-        <AestheticIntro />
-        <AestheticConditions />
-        <AestheticProcedures />
-        <AestheticInfo />
-        <AestheticRelated />
+      <div className="bg-gradient-to-b from-white to-[#fff5f8]">
+        <div className="container mx-auto px-4 py-24">
+          <AestheticIntro />
+          <AestheticConditions />
+          <AestheticProcedures />
+          <AestheticInfo />
+          <AestheticRelated />
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
