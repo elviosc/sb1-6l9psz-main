@@ -45,34 +45,22 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center">
+    <section className="relative h-screen flex items-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full bg-[#6f0d44]">
-        <div className="relative w-full h-full" style={{ paddingBottom: '56.25%' }}>
-          <iframe
-            ref={iframeRef}
-            src="https://www.youtube-nocookie.com/embed/m4coMkLV6kU?controls=0&rel=0&playsinline=1&cc_load_policy=0&enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=m4coMkLV6kU"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              width: '100vw',
-              height: '100vh',
-              transform: 'translate(-50%, -50%) scale(1.5)',
-              border: 'none',
-              pointerEvents: 'none',
-              objectFit: 'cover'
-            }}
-          />
-        </div>
+        <iframe
+          ref={iframeRef}
+          src="https://www.youtube-nocookie.com/embed/m4coMkLV6kU?controls=0&rel=0&playsinline=1&cc_load_policy=0&enablejsapi=1&autoplay=1&mute=1&loop=1&playlist=m4coMkLV6kU"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          className="absolute top-1/2 left-1/2 w-[120vw] h-[120vh] -translate-x-1/2 -translate-y-1/2 scale-[1.3] pointer-events-none object-cover"
+        />
       </div>
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#6f0d44]/80 to-[#6f0d44]/60" />
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 pt-20">
+      <div className="relative container mx-auto px-4">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
