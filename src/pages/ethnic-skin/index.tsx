@@ -1,35 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, ChevronRight, Award, Star } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
-const ethnicSkinTreatments = [
-  {
-    title: "Acne em Peles Étnicas",
-    description: "Tratamento especializado para acne em peles melanodérmicas, evitando manchas e cicatrizes queloides.",
-    icon: Star,
-    href: "/ethnic-skin/acne"
-  },
-  {
-    title: "Melasma",
-    description: "Tratamento personalizado para manchas escuras na pele, comum em peles étnicas.",
-    icon: Star,
-    href: "/ethnic-skin/melasma"
-  },
-  {
-    title: "Manchas e Hiperpigmentação",
-    description: "Tratamentos seguros e eficazes para uniformização do tom da pele.",
-    icon: Star,
-    href: "/ethnic-skin/hyperpigmentation"
-  },
-  {
-    title: "Cicatrizes e Queloides",
-    description: "Protocolos específicos para prevenção e tratamento de cicatrizes.",
-    icon: Star,
-    href: "/ethnic-skin/scars"
-  }
-];
 
 export function EthnicSkinPage() {
   return (

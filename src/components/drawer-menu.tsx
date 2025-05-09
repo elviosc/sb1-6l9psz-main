@@ -5,12 +5,17 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  ScrollArea,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 
-const menuItems = [
+interface MenuItem {
+  title: string;
+  href?: string;
+  items?: (MenuItem & { description?: string })[];
+}
+
+const menuItems: MenuItem[] = [
   {
     title: "Home",
     href: "/",
@@ -126,7 +131,7 @@ export function DrawerMenu() {
                       {item.items?.map((subItem) => (
                         <li key={subItem.title}>
                           <Link
-                            to={subItem.href}
+                            to={subItem.href || ''}
                             className="block text-gray-600 hover:text-[#6f0d44]"
                           >
                             {subItem.title}

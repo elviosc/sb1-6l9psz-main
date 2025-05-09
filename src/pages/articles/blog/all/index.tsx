@@ -37,7 +37,7 @@ interface Category {
 export function BlogListPage() {
   const [posts, setPosts] = useState<WordPressPost[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const { bookmarks, toggleBookmark, isBookmarked } = useBookmarks();
+  const { toggleBookmark, isBookmarked } = useBookmarks();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,7 +54,6 @@ export function BlogListPage() {
         if (!response.ok) {
           throw new Error('Failed to fetch posts');
         }
-        const totalPosts = response.headers.get('X-WP-Total');
         const wpTotalPages = response.headers.get('X-WP-TotalPages');
         setTotalPages(wpTotalPages ? parseInt(wpTotalPages) : 1);
         
@@ -90,11 +89,6 @@ export function BlogListPage() {
   const getCategoryName = (categoryId: number) => {
     const category = categories.find(cat => cat.id === categoryId);
     return category?.name || 'Sem categoria';
-  };
-
-  const stripHtmlTags = (html: string) => {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || '';
   };
 
   return (

@@ -1,5 +1,4 @@
 import { TreatmentDetail } from "@/components/treatments/treatment-detail";
-import { Card } from "@/components/ui/card";
 import { PageHero } from "@/components/ui/page-hero";
 import { Check } from "lucide-react";
 import { ChevronRight } from "lucide-react";

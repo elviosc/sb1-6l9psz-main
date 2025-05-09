@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-interface TreatmentCardProps {
+export interface TreatmentCardProps {
   title: string;
   description: string;
   image: string;

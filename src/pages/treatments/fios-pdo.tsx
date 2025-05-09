@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Clock, ArrowRight } from "lucide-react";
+import { Clock, ArrowRight } from "lucide-react";
 import { FiosPDOHero } from "@/components/treatments/fios-pdo/hero";
 import { FiosPDOAreas } from "@/components/treatments/fios-pdo/areas";
 import { FiosPDOCare } from "@/components/treatments/fios-pdo/care";

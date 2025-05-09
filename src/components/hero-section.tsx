@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
 interface HeroSectionProps {
@@ -6,7 +5,6 @@ interface HeroSectionProps {
   subtitle?: string;
   description?: string;
   image?: string;
-  videoUrl?: string;
   children?: React.ReactNode;
 }
 
@@ -14,7 +12,6 @@ export function HeroSection({
   title = "Dermatologia Especializada",
   subtitle = "Dra. Luciana Maluf",
   description = "Mais de 20 anos de experiência em dermatologia clínica e estética, oferecendo tratamentos personalizados e resultados excepcionais.",
-  videoUrl,
   children
 }: HeroSectionProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);

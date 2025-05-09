@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, Calendar, MapPin, Mail, Instagram, Facebook, WhatsApp } from "lucide-react";
+import { Phone, Calendar, MapPin, Mail, Instagram, Facebook, MessageCircle } from "lucide-react";
 
 export function Dock() {
   return (
@@ -48,7 +48,7 @@ export function Dock() {
               className="p-2 rounded-full text-[#6f0d44] hover:bg-[#6f0d44] hover:text-white transition-colors duration-300"
               title="WhatsApp"
             >
-              <WhatsApp className="w-5 h-5" />
+              <MessageCircle className="w-5 h-5" />
             </a>
 
             <a

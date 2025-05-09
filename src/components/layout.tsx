@@ -1,11 +1,8 @@
-import { Outlet } from "react-router-dom";
 import { Header } from "./header";
 import { Footer } from "./footer";
-import { DockMenu } from "./dock-menu";
-import { MobileMenu } from "./mobile-menu";
 import { useEffect } from "react";
 
-export function Layout() {
+export function Layout({ children }: { children: React.ReactNode }) {
   // Handle viewport height for mobile browsers
   useEffect(() => {
     const setVH = () => {
@@ -26,6 +23,7 @@ export function Layout() {
   return (
     <>
       <Header />
+      {children}
       <Footer />
     </>
   );

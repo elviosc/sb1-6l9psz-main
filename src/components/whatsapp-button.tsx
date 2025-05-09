@@ -7,7 +7,7 @@ export function WhatsAppButton() {
       {/* Desktop Version */}
       <motion.a
         href="whatsapp://send?phone=+5511976614826&text=Bem-vindo%28a%29+a+Cl%C3%ADnica+de+Dermatologia+Dra.+Luciana+Maluf"
-        className="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#20BA5C] text-white rounded-full shadow-lg z-50 hidden md:flex items-center gap-3 pr-4 pl-4 py-3 group"
+        className="fixed bottom-7 right-6 bg-[#25D366] hover:bg-[#20BA5C] text-white rounded-full shadow-lg z-50 hidden md:flex items-center gap-3 pr-4 pl-4 py-3 group"
         aria-label="Contato via WhatsApp"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -39,7 +39,7 @@ export function WhatsAppButton() {
       {/* Mobile Version */}
       <motion.a
         href="whatsapp://send?phone=+5511976614826&text=Bem-vindo%28a%29+a+Cl%C3%ADnica+de+Dermatologia+Dra.+Luciana+Maluf"
-        className="fixed bottom-[70px] right-4 bg-[#25D366] hover:bg-[#20BA5C] text-white rounded-full shadow-lg z-50 md:hidden flex items-center justify-center w-12 h-12"
+        className="fixed bottom-7 right-6 bg-[#25D366] hover:bg-[#20BA5C] text-white rounded-full p-3 shadow-lg z-50 md:hidden flex items-center justify-center w-12 h-12"
         aria-label="Contato via WhatsApp"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}

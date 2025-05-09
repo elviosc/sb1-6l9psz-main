@@ -1,0 +1,40 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Set default index order
+DirectoryIndex index.html index.php
+
+# WordPress specific URLs - handle these first
+RewriteRule ^lp1(/.*)?$ index.php [L]
+RewriteRule ^threadstreasure-curso-hands-on-online(/.*)?$ index.php [L]
+RewriteRule ^curso(/.*)?$ index.php [L]
+
+# WordPress REST API
+RewriteRule ^wp-json(/.*)?$ index.php [L]
+
+# WordPress admin and login
+RewriteRule ^wp-admin(/.*)?$ wp-admin$1 [L]
+RewriteRule ^wp-login\.php$ wp-login.php [L]
+
+# If the request is for an existing file or directory, serve it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# For all other requests, rewrite to React's index.html
+RewriteRule ^ index.html [L]
+
+# Add CORS headers for the REST API
+<IfModule mod_headers.c>
+    SetEnvIf Origin "^http(s)?://(.+\.)?(localhost:3000|lucianamaluf\.com\.br)$" origin_is=$0
+    Header always set Access-Control-Allow-Origin %{origin_is}e env=origin_is
+    Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+    Header always set Access-Control-Allow-Credentials "true"
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Defina o pacote "ea-php81" como a linguagem padrão de programação "PHP"
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
